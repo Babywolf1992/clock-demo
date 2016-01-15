@@ -52,6 +52,7 @@
 		9EE7CF7E1C35066600689164 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF7D1C35066600689164 /* NSArray+Log.m */; };
 		9EE7CF811C35078D00689164 /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF801C35078D00689164 /* NSDictionary+Log.m */; };
 		9EE7CF841C351B8300689164 /* WFMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF831C351B8300689164 /* WFMeeting.m */; };
+		9EE8EF871C489F9E00F3B972 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8EF861C489F9E00F3B972 /* Test.m */; };
 		9EF28CC21C3E0B780043580C /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF28CC11C3E0B780043580C /* UserViewController.m */; };
 		9EF44FCC1C3F457F00924EED /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF44FCB1C3F457F00924EED /* SettingViewController.m */; };
 		9EF44FCF1C3F572500924EED /* SettingPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF44FCE1C3F572500924EED /* SettingPasswordViewController.m */; };
@@ -210,6 +211,8 @@
 		9EE7CF801C35078D00689164 /* NSDictionary+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Log.m"; sourceTree = "<group>"; };
 		9EE7CF821C351B8300689164 /* WFMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMeeting.h; sourceTree = "<group>"; };
 		9EE7CF831C351B8300689164 /* WFMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMeeting.m; sourceTree = "<group>"; };
+		9EE8EF851C489F9E00F3B972 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		9EE8EF861C489F9E00F3B972 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		9EF28CC01C3E0B780043580C /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		9EF28CC11C3E0B780043580C /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		9EF44FCA1C3F457F00924EED /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				9E118D941C27F60A007A052A /* LaunchScreen.storyboard */,
 				9E118D971C27F60A007A052A /* Info.plist */,
 				9E118D861C27F60A007A052A /* Supporting Files */,
+				9EE8EF851C489F9E00F3B972 /* Test.h */,
+				9EE8EF861C489F9E00F3B972 /* Test.m */,
 			);
 			path = zdnz;
 			sourceTree = "<group>";
@@ -930,6 +935,7 @@
 				9EE7769D1C2A79DC00C4185A /* MainViewController.m in Sources */,
 				9EF450621C3F66FE00924EED /* QNSystem.m in Sources */,
 				9EE776941C2A528D00C4185A /* AFHTTPSessionManager.m in Sources */,
+				9EE8EF871C489F9E00F3B972 /* Test.m in Sources */,
 				9EF4505B1C3F66FE00924EED /* GTM_Base64.m in Sources */,
 				9EF450991C3F68C100924EED /* QNResolver.m in Sources */,
 			);
