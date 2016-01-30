@@ -96,18 +96,19 @@
     sinaBtn.highlighted = NO;
     [sinaBtn setBackgroundImage:[UIImage imageNamed:@"sina"] forState:UIControlStateNormal];
     [openApiView addSubview:sinaBtn];
+    [sinaBtn addTarget:self action:@selector(sinaLogin) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *tencentBtn = [[UIButton alloc] initWithFrame:CGRectMake(sinaBtn.right+distance, 10, kButtonWH, kButtonWH)];
     tencentBtn.highlighted = NO;
     [tencentBtn setBackgroundImage:[UIImage imageNamed:@"qq"] forState:UIControlStateNormal];
     [openApiView addSubview:tencentBtn];
-//    [tencentBtn addTarget:self action:@selector(tencentLogin) forControlEvents:UIControlEventTouchUpInside];
+    [tencentBtn addTarget:self action:@selector(tencentLogin) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *wechatBtn = [[UIButton alloc] initWithFrame:CGRectMake(tencentBtn.right+distance, 10, kButtonWH, kButtonWH)];
     sinaBtn.highlighted = NO;
     [wechatBtn setBackgroundImage:[UIImage imageNamed:@"wechat"] forState:UIControlStateNormal];
     [openApiView addSubview:wechatBtn];
-    [wechatBtn addTarget:self action:@selector(tencentLogin) forControlEvents:UIControlEventTouchUpInside];
+    [wechatBtn addTarget:self action:@selector(wechatLogin) forControlEvents:UIControlEventTouchUpInside];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:tap];
@@ -264,18 +265,6 @@
     [self presentViewController:_alertViewCtrl animated:YES completion:nil];
 }
 
-- (void)handleTextFieldTextDidChangeNotification:(NSNotification *)notification {
-    
-}
-
-- (void)bindingAction:(UIButton *)sender {
-    
-}
-
-- (void)cancelAction:(UIButton *)sender {
-    
-}
-
 /**
  * 登录失败后的回调
  * \param cancelled 代表用户是否主动退出登录
@@ -289,6 +278,14 @@
  */
 - (void)tencentDidNotNetWork {
     NSLog(@"没有网络");
+}
+
+- (void)sinaLogin {
+    
+}
+
+- (void)wechatLogin {
+    
 }
 
 - (void)tencentLogin {
