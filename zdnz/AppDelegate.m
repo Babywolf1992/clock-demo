@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TencentOpenAPI.framework/Headers/TencentOAuth.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +41,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - tencentOpenAPI
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+    return [TencentOAuth HandleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [TencentOAuth HandleOpenURL:url];
 }
 
 @end

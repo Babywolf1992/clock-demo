@@ -31,6 +31,15 @@
 		9E82222D1C2BA27200BDE4A1 /* NSDate+FSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82221E1C2BA27200BDE4A1 /* NSDate+FSExtension.m */; };
 		9E82222E1C2BA27200BDE4A1 /* NSString+FSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8222201C2BA27200BDE4A1 /* NSString+FSExtension.m */; };
 		9E82222F1C2BA27200BDE4A1 /* UIView+FSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8222221C2BA27200BDE4A1 /* UIView+FSExtension.m */; };
+		9EA2ECC11C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2ECC01C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle */; };
+		9EA2ECC31C5C7C6B00EAB20A /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */; };
+		9EA2ECC51C5C7CC800EAB20A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECC41C5C7CC800EAB20A /* Security.framework */; };
+		9EA2ECC71C5C7CE600EAB20A /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECC61C5C7CE600EAB20A /* libiconv.tbd */; };
+		9EA2ECC91C5C7CF000EAB20A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */; };
+		9EA2ECCB1C5C7D0300EAB20A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */; };
+		9EA2ECCD1C5C7D1900EAB20A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECCC1C5C7D1900EAB20A /* libsqlite3.tbd */; };
+		9EA2ECCF1C5C7D2100EAB20A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECCE1C5C7D2100EAB20A /* CoreTelephony.framework */; };
+		9EA2ECD11C5C7D3600EAB20A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */; };
 		9EE02F551C28EF720017F072 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE02F541C28EF720017F072 /* LoginViewController.m */; };
 		9EE02F591C28F73C0017F072 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE02F581C28F73C0017F072 /* UIViewExt.m */; };
 		9EE4D2B01C3B5C8D006359A1 /* WFAnniversary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4D2AF1C3B5C8D006359A1 /* WFAnniversary.m */; };
@@ -52,7 +61,6 @@
 		9EE7CF7E1C35066600689164 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF7D1C35066600689164 /* NSArray+Log.m */; };
 		9EE7CF811C35078D00689164 /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF801C35078D00689164 /* NSDictionary+Log.m */; };
 		9EE7CF841C351B8300689164 /* WFMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF831C351B8300689164 /* WFMeeting.m */; };
-		9EE8EF871C489F9E00F3B972 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8EF861C489F9E00F3B972 /* Test.m */; };
 		9EF28CC21C3E0B780043580C /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF28CC11C3E0B780043580C /* UserViewController.m */; };
 		9EF44FCC1C3F457F00924EED /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF44FCB1C3F457F00924EED /* SettingViewController.m */; };
 		9EF44FCF1C3F572500924EED /* SettingPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF44FCE1C3F572500924EED /* SettingPasswordViewController.m */; };
@@ -167,6 +175,15 @@
 		9E8222201C2BA27200BDE4A1 /* NSString+FSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FSExtension.m"; sourceTree = "<group>"; };
 		9E8222211C2BA27200BDE4A1 /* UIView+FSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FSExtension.h"; sourceTree = "<group>"; };
 		9E8222221C2BA27200BDE4A1 /* UIView+FSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FSExtension.m"; sourceTree = "<group>"; };
+		9EA2ECC01C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		9EA2ECC41C5C7CC800EAB20A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9EA2ECC61C5C7CE600EAB20A /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9EA2ECCC1C5C7D1900EAB20A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9EA2ECCE1C5C7D2100EAB20A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9EE02F531C28EF720017F072 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9EE02F541C28EF720017F072 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9EE02F571C28F73C0017F072 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
@@ -211,8 +228,6 @@
 		9EE7CF801C35078D00689164 /* NSDictionary+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Log.m"; sourceTree = "<group>"; };
 		9EE7CF821C351B8300689164 /* WFMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMeeting.h; sourceTree = "<group>"; };
 		9EE7CF831C351B8300689164 /* WFMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMeeting.m; sourceTree = "<group>"; };
-		9EE8EF851C489F9E00F3B972 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
-		9EE8EF861C489F9E00F3B972 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		9EF28CC01C3E0B780043580C /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		9EF28CC11C3E0B780043580C /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		9EF44FCA1C3F457F00924EED /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -322,8 +337,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF450A01C3F698C00924EED /* libresolv.9.tbd in Frameworks */,
 				9EF4509E1C3F695000924EED /* libz.tbd in Frameworks */,
+				9EA2ECD11C5C7D3600EAB20A /* libstdc++.tbd in Frameworks */,
+				9EA2ECCF1C5C7D2100EAB20A /* CoreTelephony.framework in Frameworks */,
+				9EA2ECCD1C5C7D1900EAB20A /* libsqlite3.tbd in Frameworks */,
+				9EA2ECCB1C5C7D0300EAB20A /* CoreGraphics.framework in Frameworks */,
+				9EA2ECC91C5C7CF000EAB20A /* SystemConfiguration.framework in Frameworks */,
+				9EA2ECC71C5C7CE600EAB20A /* libiconv.tbd in Frameworks */,
+				9EA2ECC51C5C7CC800EAB20A /* Security.framework in Frameworks */,
+				9EF450A01C3F698C00924EED /* libresolv.9.tbd in Frameworks */,
+				9EA2ECC31C5C7C6B00EAB20A /* TencentOpenAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,8 +370,6 @@
 		9E118D7A1C27F60A007A052A = {
 			isa = PBXGroup;
 			children = (
-				9EF4509F1C3F698C00924EED /* libresolv.9.tbd */,
-				9EF4509D1C3F695000924EED /* libz.tbd */,
 				9E118D851C27F60A007A052A /* zdnz */,
 				9E118D9F1C27F60B007A052A /* zdnzTests */,
 				9E118DAA1C27F60B007A052A /* zdnzUITests */,
@@ -402,8 +423,6 @@
 				9E118D941C27F60A007A052A /* LaunchScreen.storyboard */,
 				9E118D971C27F60A007A052A /* Info.plist */,
 				9E118D861C27F60A007A052A /* Supporting Files */,
-				9EE8EF851C489F9E00F3B972 /* Test.h */,
-				9EE8EF861C489F9E00F3B972 /* Test.m */,
 			);
 			path = zdnz;
 			sourceTree = "<group>";
@@ -411,6 +430,17 @@
 		9E118D861C27F60A007A052A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */,
+				9EA2ECCE1C5C7D2100EAB20A /* CoreTelephony.framework */,
+				9EA2ECCC1C5C7D1900EAB20A /* libsqlite3.tbd */,
+				9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */,
+				9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */,
+				9EA2ECC61C5C7CE600EAB20A /* libiconv.tbd */,
+				9EA2ECC41C5C7CC800EAB20A /* Security.framework */,
+				9EF4509F1C3F698C00924EED /* libresolv.9.tbd */,
+				9EF4509D1C3F695000924EED /* libz.tbd */,
+				9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */,
+				9EA2ECC01C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle */,
 				9EF450A11C3F7A4A00924EED /* SDWebImage */,
 				9EF450721C3F68C100924EED /* HappyDNS */,
 				9EF450211C3F66FE00924EED /* QiniuSDK */,
@@ -829,6 +859,7 @@
 				9E82222C1C2BA27200BDE4A1 /* Info.plist in Resources */,
 				9E118D961C27F60A007A052A /* LaunchScreen.storyboard in Resources */,
 				9E118D931C27F60A007A052A /* Assets.xcassets in Resources */,
+				9EA2ECC11C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				9E118D911C27F60A007A052A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -935,7 +966,6 @@
 				9EE7769D1C2A79DC00C4185A /* MainViewController.m in Sources */,
 				9EF450621C3F66FE00924EED /* QNSystem.m in Sources */,
 				9EE776941C2A528D00C4185A /* AFHTTPSessionManager.m in Sources */,
-				9EE8EF871C489F9E00F3B972 /* Test.m in Sources */,
 				9EF4505B1C3F66FE00924EED /* GTM_Base64.m in Sources */,
 				9EF450991C3F68C100924EED /* QNResolver.m in Sources */,
 			);
@@ -1078,6 +1108,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/zdnz",
+				);
 				GCC_VERSION = "";
 				INFOPLIST_FILE = zdnz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1093,6 +1127,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/zdnz",
+				);
 				GCC_VERSION = "";
 				INFOPLIST_FILE = zdnz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

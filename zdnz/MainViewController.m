@@ -66,7 +66,7 @@
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    NSString *url = @"http://192.168.10.16:3000/service/event/getSchedulesByDate";
+    NSString *url = kGetTodayDataURL;
     NSDictionary *parameters = @{@"userId":_user.user_id,@"date":dateStr,@"token":_user.token};
 //    NSLog(@"%@",parameters);
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

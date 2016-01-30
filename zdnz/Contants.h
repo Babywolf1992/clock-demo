@@ -19,6 +19,8 @@
 #define kBaseURL @"http://192.168.10.16:3000"
 #endif
 
+#define PreDefM_APPID @"1105081035"
+
 #define kBaseImageURL @"http://7xohfg.com1.z0.glb.clouddn.com/"
 
 #define kGetImageToken [NSString stringWithFormat:@"%@/service/users/updateImage",kBaseURL]
@@ -33,6 +35,8 @@
 #define kGetAlarmURL [NSString stringWithFormat:@"%@/service/event/getAlarm",kBaseURL]
 #define kGetMeetingURL [NSString stringWithFormat:@"%@/service/event/getMeeting",kBaseURL]
 #define kGetAnnURL [NSString stringWithFormat:@"%@/service/event/getAnniversary",kBaseURL]
+
+#define kGetTodayDataURL [NSString stringWithFormat:@"%@/service/event/getSchedulesByDate",kBaseURL]
 
 #define kDeleteAlarmURL [NSString stringWithFormat:@"%@/service/event/deleteAlarm",kBaseURL]
 #define kDeleteMeetingURL [NSString stringWithFormat:@"%@/service/event/deleteMeeting",kBaseURL]

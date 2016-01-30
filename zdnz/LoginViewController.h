@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TencentOpenAPI.framework/Headers/TencentOAuth.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<TencentSessionDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) UITextField *phone;
 @property (nonatomic, strong) UITextField *password;
 @property (nonatomic, strong) UIButton *loginBtn;
+
+@property (nonatomic, strong) TencentOAuth *tencentOAuth;
 
 @end
