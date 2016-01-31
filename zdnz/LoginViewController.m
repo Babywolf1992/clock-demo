@@ -14,6 +14,7 @@
 #import "WFUtils.h"
 #import "MainNavController.h"
 #import "WFUser.h"
+#import "WeiboSDK.h"
 
 #define kButtonWH 60
 
@@ -39,6 +40,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
+    NSLog(@"bundleID:%@",identifier);
     
     self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:PreDefM_APPID andDelegate:self];
 
@@ -91,21 +94,23 @@
     
     CGFloat distance = (self.view.width-kButtonWH*3)/4;
     
+    /** 新浪 */
     UIButton *sinaBtn = [[UIButton alloc] initWithFrame:CGRectMake(distance, 10, kButtonWH, kButtonWH)];
-
-    sinaBtn.highlighted = NO;
+    [sinaBtn setBackgroundImage:[UIImage imageNamed:@"sina"] forState:UIControlStateHighlighted];
     [sinaBtn setBackgroundImage:[UIImage imageNamed:@"sina"] forState:UIControlStateNormal];
     [openApiView addSubview:sinaBtn];
     [sinaBtn addTarget:self action:@selector(sinaLogin) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *tencentBtn = [[UIButton alloc] initWithFrame:CGRectMake(sinaBtn.right+distance, 10, kButtonWH, kButtonWH)];
-    tencentBtn.highlighted = NO;
-    [tencentBtn setBackgroundImage:[UIImage imageNamed:@"qq"] forState:UIControlStateNormal];
-    [openApiView addSubview:tencentBtn];
-    [tencentBtn addTarget:self action:@selector(tencentLogin) forControlEvents:UIControlEventTouchUpInside];
+    /** qq */
+    UIButton *tenectBtn = [[UIButton alloc] initWithFrame:CGRectMake(sinaBtn.right+distance, 10, kButtonWH, kButtonWH)];
+    [tenectBtn setBackgroundImage:[UIImage imageNamed:@"qq"] forState:UIControlStateHighlighted];
+    [tenectBtn setBackgroundImage:[UIImage imageNamed:@"qq"] forState:UIControlStateNormal];
+    [openApiView addSubview:tenectBtn];
+    [tenectBtn addTarget:self action:@selector(tencentLogin) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *wechatBtn = [[UIButton alloc] initWithFrame:CGRectMake(tencentBtn.right+distance, 10, kButtonWH, kButtonWH)];
-    sinaBtn.highlighted = NO;
+    /** 微信 */
+    UIButton *wechatBtn = [[UIButton alloc] initWithFrame:CGRectMake(tenectBtn.right+distance, 10, kButtonWH, kButtonWH)];
+    [wechatBtn setBackgroundImage:[UIImage imageNamed:@"wechat"] forState:UIControlStateHighlighted];
     [wechatBtn setBackgroundImage:[UIImage imageNamed:@"wechat"] forState:UIControlStateNormal];
     [openApiView addSubview:wechatBtn];
     [wechatBtn addTarget:self action:@selector(wechatLogin) forControlEvents:UIControlEventTouchUpInside];
@@ -280,14 +285,26 @@
     NSLog(@"没有网络");
 }
 
+/**
+ * 新浪登陆
+ */
 - (void)sinaLogin {
-    
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = kSINA_RedirectURI;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
 }
 
+/**
+ * 微信登陆
+ */
 - (void)wechatLogin {
     
 }
 
+/**
+ * qq登陆
+ */
 - (void)tencentLogin {
     NSArray* permissions = [NSArray arrayWithObjects:
                             kOPEN_PERMISSION_GET_USER_INFO,
@@ -305,6 +322,7 @@
                             kOPEN_PERMISSION_GET_VIP_RICH_INFO,
                             nil];
     
+//    [_tencentOAuth authorize:permissions localAppId:@"1105081035" inSafari:NO];
     [_tencentOAuth authorize:permissions inSafari:NO];
 }
 

@@ -18,6 +18,14 @@
 		9E54985F1C3387480060FB17 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E54985E1C3387480060FB17 /* AddViewController.m */; };
 		9E5498631C338E740060FB17 /* WFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5498621C338E740060FB17 /* WFUser.m */; };
 		9E5498661C33D3BC0060FB17 /* WFClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5498651C33D3BC0060FB17 /* WFClock.m */; };
+		9E64647A1C5DDA4C00387D87 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6464751C5DDA4C00387D87 /* libWeChatSDK.a */; };
+		9E64647B1C5DDA4C00387D87 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9E6464761C5DDA4C00387D87 /* read_me.txt */; };
+		9E64647D1C5DDAD000387D87 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E64647C1C5DDAD000387D87 /* libc++.tbd */; };
+		9E64648B1C5DDF8C00387D87 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E64647F1C5DDF8C00387D87 /* libWeiboSDK.a */; };
+		9E64648C1C5DDF8C00387D87 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E6464881C5DDF8C00387D87 /* WeiboSDK.bundle */; };
+		9E64648E1C5DE02E00387D87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E64648D1C5DE02E00387D87 /* QuartzCore.framework */; };
+		9E6464901C5DE03A00387D87 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E64648F1C5DE03A00387D87 /* ImageIO.framework */; };
+		9E6464921C5DE06700387D87 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6464911C5DE06700387D87 /* CoreText.framework */; };
 		9E8222231C2BA27200BDE4A1 /* FSCalendar+IBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82220A1C2BA27200BDE4A1 /* FSCalendar+IBExtension.m */; };
 		9E8222241C2BA27200BDE4A1 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82220C1C2BA27200BDE4A1 /* FSCalendar.m */; };
 		9E8222251C2BA27200BDE4A1 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82220E1C2BA27200BDE4A1 /* FSCalendarAppearance.m */; };
@@ -149,6 +157,27 @@
 		9E5498621C338E740060FB17 /* WFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUser.m; sourceTree = "<group>"; };
 		9E5498641C33D3BC0060FB17 /* WFClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFClock.h; sourceTree = "<group>"; };
 		9E5498651C33D3BC0060FB17 /* WFClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFClock.m; sourceTree = "<group>"; };
+		9E6464751C5DDA4C00387D87 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		9E6464761C5DDA4C00387D87 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		9E6464771C5DDA4C00387D87 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		9E6464781C5DDA4C00387D87 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		9E6464791C5DDA4C00387D87 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		9E64647C1C5DDAD000387D87 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		9E64647F1C5DDF8C00387D87 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		9E6464801C5DDF8C00387D87 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
+		9E6464811C5DDF8C00387D87 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		9E6464821C5DDF8C00387D87 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		9E6464831C5DDF8C00387D87 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		9E6464841C5DDF8C00387D87 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		9E6464851C5DDF8C00387D87 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKBasicButton.h; sourceTree = "<group>"; };
+		9E6464861C5DDF8C00387D87 /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKCommentButton.h; sourceTree = "<group>"; };
+		9E6464871C5DDF8C00387D87 /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		9E6464881C5DDF8C00387D87 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		9E6464891C5DDF8C00387D87 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		9E64648A1C5DDF8C00387D87 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		9E64648D1C5DE02E00387D87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9E64648F1C5DE03A00387D87 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		9E6464911C5DE06700387D87 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		9E8222091C2BA27200BDE4A1 /* FSCalendar+IBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar+IBExtension.h"; sourceTree = "<group>"; };
 		9E82220A1C2BA27200BDE4A1 /* FSCalendar+IBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSCalendar+IBExtension.m"; sourceTree = "<group>"; };
 		9E82220B1C2BA27200BDE4A1 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendar.h; sourceTree = "<group>"; };
@@ -337,12 +366,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6464921C5DE06700387D87 /* CoreText.framework in Frameworks */,
+				9E6464901C5DE03A00387D87 /* ImageIO.framework in Frameworks */,
+				9E64648E1C5DE02E00387D87 /* QuartzCore.framework in Frameworks */,
+				9E64647D1C5DDAD000387D87 /* libc++.tbd in Frameworks */,
 				9EF4509E1C3F695000924EED /* libz.tbd in Frameworks */,
 				9EA2ECD11C5C7D3600EAB20A /* libstdc++.tbd in Frameworks */,
 				9EA2ECCF1C5C7D2100EAB20A /* CoreTelephony.framework in Frameworks */,
 				9EA2ECCD1C5C7D1900EAB20A /* libsqlite3.tbd in Frameworks */,
 				9EA2ECCB1C5C7D0300EAB20A /* CoreGraphics.framework in Frameworks */,
+				9E64647A1C5DDA4C00387D87 /* libWeChatSDK.a in Frameworks */,
 				9EA2ECC91C5C7CF000EAB20A /* SystemConfiguration.framework in Frameworks */,
+				9E64648B1C5DDF8C00387D87 /* libWeiboSDK.a in Frameworks */,
 				9EA2ECC71C5C7CE600EAB20A /* libiconv.tbd in Frameworks */,
 				9EA2ECC51C5C7CC800EAB20A /* Security.framework in Frameworks */,
 				9EF450A01C3F698C00924EED /* libresolv.9.tbd in Frameworks */,
@@ -430,16 +465,22 @@
 		9E118D861C27F60A007A052A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */,
+				9E64647E1C5DDF8C00387D87 /* libWeiboSDK */,
+				9E6464741C5DDA3A00387D87 /* wechat_SDK */,
+				9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */,
+				9EA2ECC41C5C7CC800EAB20A /* Security.framework */,
+				9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */,
+				9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */,
+				9E6464911C5DE06700387D87 /* CoreText.framework */,
+				9E64648F1C5DE03A00387D87 /* ImageIO.framework */,
+				9E64648D1C5DE02E00387D87 /* QuartzCore.framework */,
 				9EA2ECCE1C5C7D2100EAB20A /* CoreTelephony.framework */,
 				9EA2ECCC1C5C7D1900EAB20A /* libsqlite3.tbd */,
-				9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */,
-				9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */,
 				9EA2ECC61C5C7CE600EAB20A /* libiconv.tbd */,
-				9EA2ECC41C5C7CC800EAB20A /* Security.framework */,
 				9EF4509F1C3F698C00924EED /* libresolv.9.tbd */,
 				9EF4509D1C3F695000924EED /* libz.tbd */,
-				9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */,
+				9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */,
+				9E64647C1C5DDAD000387D87 /* libc++.tbd */,
 				9EA2ECC01C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle */,
 				9EF450A11C3F7A4A00924EED /* SDWebImage */,
 				9EF450721C3F68C100924EED /* HappyDNS */,
@@ -484,6 +525,37 @@
 				9EE4D2AF1C3B5C8D006359A1 /* WFAnniversary.m */,
 			);
 			name = entity;
+			sourceTree = "<group>";
+		};
+		9E6464741C5DDA3A00387D87 /* wechat_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				9E6464751C5DDA4C00387D87 /* libWeChatSDK.a */,
+				9E6464761C5DDA4C00387D87 /* read_me.txt */,
+				9E6464771C5DDA4C00387D87 /* WechatAuthSDK.h */,
+				9E6464781C5DDA4C00387D87 /* WXApi.h */,
+				9E6464791C5DDA4C00387D87 /* WXApiObject.h */,
+			);
+			name = wechat_SDK;
+			sourceTree = "<group>";
+		};
+		9E64647E1C5DDF8C00387D87 /* libWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9E64647F1C5DDF8C00387D87 /* libWeiboSDK.a */,
+				9E6464801C5DDF8C00387D87 /* WBHttpRequest+WeiboGame.h */,
+				9E6464811C5DDF8C00387D87 /* WBHttpRequest+WeiboShare.h */,
+				9E6464821C5DDF8C00387D87 /* WBHttpRequest+WeiboToken.h */,
+				9E6464831C5DDF8C00387D87 /* WBHttpRequest+WeiboUser.h */,
+				9E6464841C5DDF8C00387D87 /* WBHttpRequest.h */,
+				9E6464851C5DDF8C00387D87 /* WBSDKBasicButton.h */,
+				9E6464861C5DDF8C00387D87 /* WBSDKCommentButton.h */,
+				9E6464871C5DDF8C00387D87 /* WBSDKRelationshipButton.h */,
+				9E6464881C5DDF8C00387D87 /* WeiboSDK.bundle */,
+				9E6464891C5DDF8C00387D87 /* WeiboSDK.h */,
+				9E64648A1C5DDF8C00387D87 /* WeiboUser.h */,
+			);
+			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
 		9E8222081C2BA27200BDE4A1 /* FSCalendar */ = {
@@ -860,6 +932,8 @@
 				9E118D961C27F60A007A052A /* LaunchScreen.storyboard in Resources */,
 				9E118D931C27F60A007A052A /* Assets.xcassets in Resources */,
 				9EA2ECC11C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				9E64648C1C5DDF8C00387D87 /* WeiboSDK.bundle in Resources */,
+				9E64647B1C5DDA4C00387D87 /* read_me.txt in Resources */,
 				9E118D911C27F60A007A052A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,6 +1189,13 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = zdnz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/zdnz/wechat_SDK",
+					"$(PROJECT_DIR)/zdnz",
+					"$(PROJECT_DIR)/zdnz/libWeiboSDK",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = self.zdnz;
 				PRODUCT_NAME = zdnz;
 				PROVISIONING_PROFILE = "";
@@ -1134,7 +1215,14 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = zdnz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/zdnz/wechat_SDK",
+					"$(PROJECT_DIR)/zdnz",
+					"$(PROJECT_DIR)/zdnz/libWeiboSDK",
+				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = self.zdnz;
 				PRODUCT_NAME = zdnz;
 				PROVISIONING_PROFILE = "";

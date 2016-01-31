@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "libWeiboSDK/WeiboSDK.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

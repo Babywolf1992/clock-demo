@@ -19,8 +19,14 @@
 #define kBaseURL @"http://192.168.10.16:3000"
 #endif
 
+// tenect Oauth
 #define PreDefM_APPID @"1105081035"
 
+// sina Oauth
+#define kSINA_AppKey @"327462439"
+#define kSINA_RedirectURI @"https://api.weibo.com/oauth2/default.html"
+
+// url地址
 #define kBaseImageURL @"http://7xohfg.com1.z0.glb.clouddn.com/"
 
 #define kGetImageToken [NSString stringWithFormat:@"%@/service/users/updateImage",kBaseURL]
