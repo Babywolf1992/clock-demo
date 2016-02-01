@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "libWeiboSDK/WeiboSDK.h"
+#import "LoginViewController.h"
+#import "SinaOAuthDelegate.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, weak) id<SinaOAuthDelegate> delegate;
 
 @end
 

@@ -13,13 +13,12 @@
 #import "MainViewController.h"
 #import "WFUtils.h"
 #import "MainNavController.h"
+#import "WFBindingViewController.h"
 #import "WFUser.h"
 #import "WeiboSDK.h"
+#import "AppDelegate.h"
 
 #define kButtonWH 60
-
-#define USERPHONE @"phone"
-#define USERPASSWORD @"password"
 
 @interface LoginViewController ()
 
@@ -41,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    NSLog(@"bundleID:%@",identifier);
+//    NSLog(@"bundleID:%@",identifier);
     
     self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:PreDefM_APPID andDelegate:self];
 
@@ -117,6 +116,10 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:tap];
+    
+    //设置微博登陆代理
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.delegate = self;
 }
 
 - (void)tapAction {
@@ -147,6 +150,7 @@
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
         NSDictionary *parameters = @{@"phone":_phone.text, @"password":_password.text};
         NSString *url = kLoginURL;
+//        NSLog(@"%@",parameters);
         [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //            NSLog(@"result:%@",responseObject);
             if ([[responseObject objectForKey:@"resultCode"] integerValue] == 0) {
@@ -199,75 +203,16 @@
  * 登录成功后的回调
  */
 - (void)tencentDidLogin {
+//    WFBindingViewController *bindingCtrl = [[WFBindingViewController alloc] initWithDictionary:nil];
+//    [self.navigationController pushViewController:bindingCtrl animated:YES];
+//    return;
     [_tencentOAuth getUserInfo];
-//    NSLog(@"accessToken:%@",_tencentOAuth.accessToken);
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    NSDictionary *parameters = @{@"qq_openId":_tencentOAuth.openId};
-    NSString *url = kLoginURL;
-    [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"result:%@",responseObject);
-        if ([[responseObject objectForKey:@"resultCode"] intValue] == 101) {
-            //绑定手机号
-            [self setupBinding];
-        }else {
-            //登陆成功
-            
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error:%@",error);
-    }];
 }
 
 #pragma mark - 设置绑定界面
-- (void)setupBinding {
-    NSString *title = NSLocalizedString(@"绑定手机号", nil);
-    NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
-    NSString *otherButtonTitle = NSLocalizedString(@"绑定", nil);
-
-    _alertViewCtrl = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
-
-    [_alertViewCtrl addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        _bindingField = textField;
-    }];
-    
-    // Create the actions.
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        [self dismissViewControllerAnimated:_alertViewCtrl completion:nil];
-    }];
-    
-    UIAlertAction *bindingAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"%@",_bindingField.text);
-        
-        if (_bindingField.text.length == 0) {
-            return;
-        }else if ([WFUtils validateMobile:_bindingField.text]) {
-            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            manager.responseSerializer = [AFJSONResponseSerializer serializer];
-            manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-            NSDictionary *parameters = @{@"qq_openId":_tencentOAuth.openId, @"phone":_bindingField.text};
-            NSLog(@"%@",parameters);
-            NSString *url = kLoginURL;
-            [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"result:%@",responseObject);
-//                if ([[responseObject objectForKey:@"resultCode"] intValue] == 102) {
-//                    //绑定成功
-//                }else {
-//                    //登陆失败
-//                    
-//                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"error:%@",error);
-            }];
-        }
-    }];
-    
-    // Add the actions.
-    [_alertViewCtrl addAction:cancelAction];
-    [_alertViewCtrl addAction:bindingAction];
-    
-    [self presentViewController:_alertViewCtrl animated:YES completion:nil];
+- (void)setupBinding:(NSMutableDictionary *)dict {
+    WFBindingViewController *bindingCtrl = [[WFBindingViewController alloc] initWithDictionary:dict];
+    [self.navigationController pushViewController:bindingCtrl animated:YES];
 }
 
 /**
@@ -326,16 +271,48 @@
     [_tencentOAuth authorize:permissions inSafari:NO];
 }
 
+/** qq获取用户资料 */
 - (void)getUserInfoResponse:(APIResponse*) response {
     if (URLREQUEST_SUCCEED == response.retCode
         && kOpenSDKErrorSuccess == response.detailRetCode) {
-        NSLog(@"%@",response);
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"操作成功"
-//                                                        message: [NSString stringWithFormat:@"%@",str]
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"我知道啦"
-//                                              otherButtonTitles: nil];
-//        [alert show];
+//        NSLog(@"%@",response);
+        NSDictionary *dic = response.jsonResponse;
+
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        NSDictionary *parameters = @{@"platform":@"qq",@"openId":_tencentOAuth.openId};
+        NSString *url = kThirdLoginURL;
+        [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"result:%@",responseObject);
+            if ([[responseObject objectForKey:@"resultCode"] intValue] == 101) {
+                //绑定
+                NSMutableDictionary *mdic = [[NSMutableDictionary alloc] initWithDictionary:parameters];
+                [mdic setObject:[dic objectForKey:@"figureurl_qq_1"] forKey:@"imageUrl"];
+                [self setupBinding:mdic];
+            }else if ([[responseObject objectForKey:@"resultCode"] intValue] == 0){
+                //登陆成功
+                WFUser *user = [WFUser sharedUser];
+                user.token = [responseObject objectForKey:@"token"];
+                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
+                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
+                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
+                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
+                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
+                user.imageToken = [responseObject objectForKey:@"imageToken"];
+                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
+                user.platform = [[responseObject objectForKey:@"user"] objectForKey:@"platform"];
+                user.openId = [[responseObject objectForKey:@"user"] objectForKey:@"openId"];
+                [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
+                [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
+                MainViewController *mainViewController = [[MainViewController alloc] init];
+                MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
+                self.view.window.rootViewController = nav;
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error:%@",error);
+        }];
+
     } else {
         NSString *errMsg = [NSString stringWithFormat:@"errorMsg:%@\n%@",
                             response.errorMsg, [response.jsonResponse objectForKey:@"msg"]];
@@ -346,6 +323,59 @@
                                               otherButtonTitles: nil];
         [alert show];
     }
+}
+
+/** 新浪微博获取用户资料 */
+- (void)getUserInfo:(NSDictionary *)dic {
+//    NSLog(@"sina getuserinfo");
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSDictionary *parameters = dic;
+    NSString *url = @"https://api.weibo.com/2/users/show.json";
+    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"result:%@",responseObject);
+        //登陆zdnz接口
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        NSString *imageUrl = [responseObject objectForKey:@"profile_image_url"];
+        NSDictionary *dicts = @{@"platform":@"sina",@"openId":[dic objectForKey:@"uid"]};
+        NSString *url = kThirdLoginURL;
+        [manager POST:url parameters:dicts success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //success
+//            NSLog(@"result:%@",responseObject);
+            if ([[responseObject objectForKey:@"resultCode"] intValue] == 101) {
+                //绑定
+                NSMutableDictionary *mdic = [[NSMutableDictionary alloc] initWithDictionary:dicts];
+                [mdic setObject:imageUrl forKey:@"imageUrl"];
+//                NSLog(@"%@",mdic);
+                [self setupBinding:mdic];
+            }else if ([[responseObject objectForKey:@"resultCode"] intValue] == 0){
+                //登陆成功
+                WFUser *user = [WFUser sharedUser];
+                user.token = [responseObject objectForKey:@"token"];
+                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
+                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
+                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
+                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
+                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
+                user.imageToken = [responseObject objectForKey:@"imageToken"];
+                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
+                user.platform = [[responseObject objectForKey:@"user"] objectForKey:@"platform"];
+                user.openId = [[responseObject objectForKey:@"user"] objectForKey:@"openId"];
+                [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
+                [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
+                MainViewController *mainViewController = [[MainViewController alloc] init];
+                MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
+                self.view.window.rootViewController = nav;
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error:%@",error);
+        }];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error:%@",error);
+    }];
 }
 
 /*

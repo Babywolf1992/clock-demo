@@ -63,9 +63,10 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSString *dateStr = [df stringFromDate:_selectDay];
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    [manager.requestSerializer setValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
     NSString *url = kGetTodayDataURL;
     NSDictionary *parameters = @{@"userId":_user.user_id,@"date":dateStr,@"token":_user.token};
 //    NSLog(@"%@",parameters);
@@ -161,8 +162,6 @@
     [_addBtn setImage:[UIImage imageNamed:@"home_add"] forState:UIControlStateNormal];
     [_addBtn addTarget:self action:@selector(addAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_addBtn];
-    
-    [self loadData];
 }
 
 #pragma mark - calendar delegate Method

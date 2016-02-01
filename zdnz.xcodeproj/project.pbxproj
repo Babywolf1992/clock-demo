@@ -50,6 +50,7 @@
 		9EA2ECD11C5C7D3600EAB20A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */; };
 		9EE02F551C28EF720017F072 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE02F541C28EF720017F072 /* LoginViewController.m */; };
 		9EE02F591C28F73C0017F072 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE02F581C28F73C0017F072 /* UIViewExt.m */; };
+		9EE1EF4A1C5EFCD20038B6B8 /* WFBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EF491C5EFCD20038B6B8 /* WFBindingViewController.m */; };
 		9EE4D2B01C3B5C8D006359A1 /* WFAnniversary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4D2AF1C3B5C8D006359A1 /* WFAnniversary.m */; };
 		9EE4D2B31C3B9D64006359A1 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4D2B21C3B9D64006359A1 /* ModifyViewController.m */; };
 		9EE7767B1C2A3FBA00C4185A /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7767A1C2A3FBA00C4185A /* RegisterController.m */; };
@@ -218,6 +219,9 @@
 		9EE02F571C28F73C0017F072 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		9EE02F581C28F73C0017F072 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		9EE02F621C28FF040017F072 /* Contants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
+		9EE1EF481C5EFCD20038B6B8 /* WFBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBindingViewController.h; sourceTree = "<group>"; };
+		9EE1EF491C5EFCD20038B6B8 /* WFBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBindingViewController.m; sourceTree = "<group>"; };
+		9EE1EF4E1C5F3CE60038B6B8 /* SinaOAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaOAuthDelegate.h; sourceTree = "<group>"; };
 		9EE4D2AE1C3B5C8D006359A1 /* WFAnniversary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFAnniversary.h; sourceTree = "<group>"; };
 		9EE4D2AF1C3B5C8D006359A1 /* WFAnniversary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFAnniversary.m; sourceTree = "<group>"; };
 		9EE4D2B11C3B9D64006359A1 /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
@@ -425,12 +429,15 @@
 		9E118D851C27F60A007A052A /* zdnz */ = {
 			isa = PBXGroup;
 			children = (
-				9EF28CC41C3E32DF0043580C /* service */,
 				9E5498601C338E5C0060FB17 /* entity */,
+				9EF28CC41C3E32DF0043580C /* service */,
+				9EE1EF4E1C5F3CE60038B6B8 /* SinaOAuthDelegate.h */,
 				9E118D891C27F60A007A052A /* AppDelegate.h */,
 				9E118D8A1C27F60A007A052A /* AppDelegate.m */,
 				9EE02F531C28EF720017F072 /* LoginViewController.h */,
 				9EE02F541C28EF720017F072 /* LoginViewController.m */,
+				9EE1EF481C5EFCD20038B6B8 /* WFBindingViewController.h */,
+				9EE1EF491C5EFCD20038B6B8 /* WFBindingViewController.m */,
 				9EE776791C2A3FBA00C4185A /* RegisterController.h */,
 				9EE7767A1C2A3FBA00C4185A /* RegisterController.m */,
 				9EFA38E91C2B838B001DE1E1 /* MainNavController.h */,
@@ -1018,6 +1025,7 @@
 				9EF4505F1C3F66FE00924EED /* QNEtag.m in Sources */,
 				9EF4506F1C3F66FE00924EED /* QNUploadManager.m in Sources */,
 				9EF450651C3F66FE00924EED /* QNHttpManager.m in Sources */,
+				9EE1EF4A1C5EFCD20038B6B8 /* WFBindingViewController.m in Sources */,
 				9EF450951C3F68C100924EED /* QNDnspodEnterprise.m in Sources */,
 				9EF450601C3F66FE00924EED /* QNFile.m in Sources */,
 				9EF4506C1C3F66FE00924EED /* QNConfiguration.m in Sources */,

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define USERPHONE @"phone"
+#define USERPASSWORD @"password"
+
 @interface WFUser : NSObject
 
 @property (nonatomic, copy) NSString *username;
@@ -19,6 +22,10 @@
 
 @property (nonatomic, copy) NSString *imageURL;
 @property (nonatomic, copy) NSString *imageToken;
+
+// 第三方登陆相关
+@property (nonatomic, copy) NSString *platform;
+@property (nonatomic, copy) NSString *openId;
 
 + (instancetype)sharedUser;
 

@@ -34,6 +34,10 @@
 #define kRegisterURL [NSString stringWithFormat:@"%@/service/users/register",kBaseURL]
 #define kLoginURL [NSString stringWithFormat:@"%@/service/users/login",kBaseURL]
 
+#define kThirdLoginURL [NSString stringWithFormat:@"%@/service/users/thirdLogin",kBaseURL]
+#define kThirdRegisterURL [NSString stringWithFormat:@"%@/service/users/thirdRegister",kBaseURL]
+#define kThirdBindUserURL [NSString stringWithFormat:@"%@/service/users/bindUser",kBaseURL]
+
 #define kAddAlarmURL [NSString stringWithFormat:@"%@/service/event/addAlarm",kBaseURL]
 #define kAddMeetingURL [NSString stringWithFormat:@"%@/service/event/addMeeting",kBaseURL]
 #define kAddAnnURL [NSString stringWithFormat:@"%@/service/event/addAnniversary",kBaseURL]

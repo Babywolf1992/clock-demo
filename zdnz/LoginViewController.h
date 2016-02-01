@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TencentOpenAPI.framework/Headers/TencentOAuth.h"
-
-@interface LoginViewController : UIViewController<TencentSessionDelegate,UIAlertViewDelegate>
+#import "SinaOAuthDelegate.h"
+@interface LoginViewController : UIViewController<TencentSessionDelegate,UIAlertViewDelegate,SinaOAuthDelegate>
 
 @property (nonatomic, strong) UITextField *phone;
 @property (nonatomic, strong) UITextField *password;
