@@ -26,6 +26,18 @@
 		9E64648E1C5DE02E00387D87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E64648D1C5DE02E00387D87 /* QuartzCore.framework */; };
 		9E6464901C5DE03A00387D87 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E64648F1C5DE03A00387D87 /* ImageIO.framework */; };
 		9E6464921C5DE06700387D87 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6464911C5DE06700387D87 /* CoreText.framework */; };
+		9E762E101C6041E800A47827 /* WFBindPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E0F1C6041E800A47827 /* WFBindPhoneController.m */; };
+		9E762E2A1C60456A00A47827 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E141C60456A00A47827 /* MJArgument.m */; };
+		9E762E2B1C60456A00A47827 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E161C60456A00A47827 /* MJConst.m */; };
+		9E762E2C1C60456A00A47827 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E191C60456A00A47827 /* MJFoundation.m */; };
+		9E762E2D1C60456A00A47827 /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E1B1C60456A00A47827 /* MJIvar.m */; };
+		9E762E2E1C60456A00A47827 /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E1D1C60456A00A47827 /* MJMember.m */; };
+		9E762E2F1C60456A00A47827 /* MJMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E1F1C60456A00A47827 /* MJMethod.m */; };
+		9E762E301C60456A00A47827 /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E211C60456A00A47827 /* MJType.m */; };
+		9E762E311C60456A00A47827 /* MJTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E231C60456A00A47827 /* MJTypeEncoding.m */; };
+		9E762E321C60456A00A47827 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E251C60456A00A47827 /* NSObject+MJCoding.m */; };
+		9E762E331C60456A00A47827 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E271C60456A00A47827 /* NSObject+MJKeyValue.m */; };
+		9E762E341C60456A00A47827 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E762E291C60456A00A47827 /* NSObject+MJMember.m */; };
 		9E8222231C2BA27200BDE4A1 /* FSCalendar+IBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82220A1C2BA27200BDE4A1 /* FSCalendar+IBExtension.m */; };
 		9E8222241C2BA27200BDE4A1 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82220C1C2BA27200BDE4A1 /* FSCalendar.m */; };
 		9E8222251C2BA27200BDE4A1 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E82220E1C2BA27200BDE4A1 /* FSCalendarAppearance.m */; };
@@ -179,6 +191,31 @@
 		9E64648D1C5DE02E00387D87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9E64648F1C5DE03A00387D87 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		9E6464911C5DE06700387D87 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		9E762E0E1C6041E800A47827 /* WFBindPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBindPhoneController.h; sourceTree = "<group>"; };
+		9E762E0F1C6041E800A47827 /* WFBindPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBindPhoneController.m; sourceTree = "<group>"; };
+		9E762E131C60456A00A47827 /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
+		9E762E141C60456A00A47827 /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
+		9E762E151C60456A00A47827 /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
+		9E762E161C60456A00A47827 /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
+		9E762E171C60456A00A47827 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		9E762E181C60456A00A47827 /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		9E762E191C60456A00A47827 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		9E762E1A1C60456A00A47827 /* MJIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJIvar.h; sourceTree = "<group>"; };
+		9E762E1B1C60456A00A47827 /* MJIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJIvar.m; sourceTree = "<group>"; };
+		9E762E1C1C60456A00A47827 /* MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMember.h; sourceTree = "<group>"; };
+		9E762E1D1C60456A00A47827 /* MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMember.m; sourceTree = "<group>"; };
+		9E762E1E1C60456A00A47827 /* MJMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMethod.h; sourceTree = "<group>"; };
+		9E762E1F1C60456A00A47827 /* MJMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMethod.m; sourceTree = "<group>"; };
+		9E762E201C60456A00A47827 /* MJType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJType.h; sourceTree = "<group>"; };
+		9E762E211C60456A00A47827 /* MJType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJType.m; sourceTree = "<group>"; };
+		9E762E221C60456A00A47827 /* MJTypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJTypeEncoding.h; sourceTree = "<group>"; };
+		9E762E231C60456A00A47827 /* MJTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJTypeEncoding.m; sourceTree = "<group>"; };
+		9E762E241C60456A00A47827 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		9E762E251C60456A00A47827 /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		9E762E261C60456A00A47827 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		9E762E271C60456A00A47827 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		9E762E281C60456A00A47827 /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
+		9E762E291C60456A00A47827 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
 		9E8222091C2BA27200BDE4A1 /* FSCalendar+IBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar+IBExtension.h"; sourceTree = "<group>"; };
 		9E82220A1C2BA27200BDE4A1 /* FSCalendar+IBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSCalendar+IBExtension.m"; sourceTree = "<group>"; };
 		9E82220B1C2BA27200BDE4A1 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendar.h; sourceTree = "<group>"; };
@@ -446,6 +483,8 @@
 				9EE7769C1C2A79DC00C4185A /* MainViewController.m */,
 				9EF28CC01C3E0B780043580C /* UserViewController.h */,
 				9EF28CC11C3E0B780043580C /* UserViewController.m */,
+				9E762E0E1C6041E800A47827 /* WFBindPhoneController.h */,
+				9E762E0F1C6041E800A47827 /* WFBindPhoneController.m */,
 				9EF44FCA1C3F457F00924EED /* SettingViewController.h */,
 				9EF44FCB1C3F457F00924EED /* SettingViewController.m */,
 				9EF44FCD1C3F572500924EED /* SettingPasswordViewController.h */,
@@ -472,23 +511,10 @@
 		9E118D861C27F60A007A052A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E762E121C60456A00A47827 /* MJExtension */,
+				9E762E111C60453800A47827 /* framework */,
 				9E64647E1C5DDF8C00387D87 /* libWeiboSDK */,
 				9E6464741C5DDA3A00387D87 /* wechat_SDK */,
-				9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */,
-				9EA2ECC41C5C7CC800EAB20A /* Security.framework */,
-				9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */,
-				9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */,
-				9E6464911C5DE06700387D87 /* CoreText.framework */,
-				9E64648F1C5DE03A00387D87 /* ImageIO.framework */,
-				9E64648D1C5DE02E00387D87 /* QuartzCore.framework */,
-				9EA2ECCE1C5C7D2100EAB20A /* CoreTelephony.framework */,
-				9EA2ECCC1C5C7D1900EAB20A /* libsqlite3.tbd */,
-				9EA2ECC61C5C7CE600EAB20A /* libiconv.tbd */,
-				9EF4509F1C3F698C00924EED /* libresolv.9.tbd */,
-				9EF4509D1C3F695000924EED /* libz.tbd */,
-				9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */,
-				9E64647C1C5DDAD000387D87 /* libc++.tbd */,
-				9EA2ECC01C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle */,
 				9EF450A11C3F7A4A00924EED /* SDWebImage */,
 				9EF450721C3F68C100924EED /* HappyDNS */,
 				9EF450211C3F66FE00924EED /* QiniuSDK */,
@@ -563,6 +589,58 @@
 				9E64648A1C5DDF8C00387D87 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		9E762E111C60453800A47827 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				9EA2ECC21C5C7C6B00EAB20A /* TencentOpenAPI.framework */,
+				9EA2ECC41C5C7CC800EAB20A /* Security.framework */,
+				9EA2ECC81C5C7CF000EAB20A /* SystemConfiguration.framework */,
+				9EA2ECCA1C5C7D0300EAB20A /* CoreGraphics.framework */,
+				9E6464911C5DE06700387D87 /* CoreText.framework */,
+				9E64648F1C5DE03A00387D87 /* ImageIO.framework */,
+				9E64648D1C5DE02E00387D87 /* QuartzCore.framework */,
+				9EA2ECCE1C5C7D2100EAB20A /* CoreTelephony.framework */,
+				9EA2ECCC1C5C7D1900EAB20A /* libsqlite3.tbd */,
+				9EA2ECC61C5C7CE600EAB20A /* libiconv.tbd */,
+				9EF4509F1C3F698C00924EED /* libresolv.9.tbd */,
+				9EF4509D1C3F695000924EED /* libz.tbd */,
+				9EA2ECD01C5C7D3600EAB20A /* libstdc++.tbd */,
+				9E64647C1C5DDAD000387D87 /* libc++.tbd */,
+				9EA2ECC01C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			name = framework;
+			sourceTree = "<group>";
+		};
+		9E762E121C60456A00A47827 /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				9E762E131C60456A00A47827 /* MJArgument.h */,
+				9E762E141C60456A00A47827 /* MJArgument.m */,
+				9E762E151C60456A00A47827 /* MJConst.h */,
+				9E762E161C60456A00A47827 /* MJConst.m */,
+				9E762E171C60456A00A47827 /* MJExtension.h */,
+				9E762E181C60456A00A47827 /* MJFoundation.h */,
+				9E762E191C60456A00A47827 /* MJFoundation.m */,
+				9E762E1A1C60456A00A47827 /* MJIvar.h */,
+				9E762E1B1C60456A00A47827 /* MJIvar.m */,
+				9E762E1C1C60456A00A47827 /* MJMember.h */,
+				9E762E1D1C60456A00A47827 /* MJMember.m */,
+				9E762E1E1C60456A00A47827 /* MJMethod.h */,
+				9E762E1F1C60456A00A47827 /* MJMethod.m */,
+				9E762E201C60456A00A47827 /* MJType.h */,
+				9E762E211C60456A00A47827 /* MJType.m */,
+				9E762E221C60456A00A47827 /* MJTypeEncoding.h */,
+				9E762E231C60456A00A47827 /* MJTypeEncoding.m */,
+				9E762E241C60456A00A47827 /* NSObject+MJCoding.h */,
+				9E762E251C60456A00A47827 /* NSObject+MJCoding.m */,
+				9E762E261C60456A00A47827 /* NSObject+MJKeyValue.h */,
+				9E762E271C60456A00A47827 /* NSObject+MJKeyValue.m */,
+				9E762E281C60456A00A47827 /* NSObject+MJMember.h */,
+				9E762E291C60456A00A47827 /* NSObject+MJMember.m */,
+			);
+			path = MJExtension;
 			sourceTree = "<group>";
 		};
 		9E8222081C2BA27200BDE4A1 /* FSCalendar */ = {
@@ -972,6 +1050,7 @@
 				9EF4509B1C3F68C100924EED /* QNDes.m in Sources */,
 				9E82222E1C2BA27200BDE4A1 /* NSString+FSExtension.m in Sources */,
 				9EE776921C2A528D00C4185A /* AFHTTPRequestOperation.m in Sources */,
+				9E762E101C6041E800A47827 /* WFBindPhoneController.m in Sources */,
 				9EF4505E1C3F66FE00924EED /* QNCrc32.m in Sources */,
 				9EF450661C3F66FE00924EED /* QNResponseInfo.m in Sources */,
 				9EF450B01C3F7A4A00924EED /* SDImageCache.m in Sources */,
@@ -988,6 +1067,9 @@
 				9EF450B41C3F7A4A00924EED /* UIImageView+WebCache.m in Sources */,
 				9E82222B1C2BA27200BDE4A1 /* FSCalendarStickyHeader.m in Sources */,
 				9EE776951C2A528D00C4185A /* AFNetworkReachabilityManager.m in Sources */,
+				9E762E2C1C60456A00A47827 /* MJFoundation.m in Sources */,
+				9E762E2F1C60456A00A47827 /* MJMethod.m in Sources */,
+				9E762E2A1C60456A00A47827 /* MJArgument.m in Sources */,
 				9EF450711C3F66FE00924EED /* QNUpToken.m in Sources */,
 				9EF450971C3F68C100924EED /* QNHijackingDetectWrapper.m in Sources */,
 				9EF4506A1C3F66FE00924EED /* QNReachability.m in Sources */,
@@ -1002,6 +1084,7 @@
 				9EE4D2B31C3B9D64006359A1 /* ModifyViewController.m in Sources */,
 				9EF450961C3F68C100924EED /* QNDnspodFree.m in Sources */,
 				9EF44FCC1C3F457F00924EED /* SettingViewController.m in Sources */,
+				9E762E311C60456A00A47827 /* MJTypeEncoding.m in Sources */,
 				9E5498661C33D3BC0060FB17 /* WFClock.m in Sources */,
 				9EE776991C2A528D00C4185A /* AFURLResponseSerialization.m in Sources */,
 				9EE7CF7E1C35066600689164 /* NSArray+Log.m in Sources */,
@@ -1019,10 +1102,13 @@
 				9E118D881C27F60A007A052A /* main.m in Sources */,
 				9EF450681C3F66FE00924EED /* QNStats.m in Sources */,
 				9E54985F1C3387480060FB17 /* AddViewController.m in Sources */,
+				9E762E331C60456A00A47827 /* NSObject+MJKeyValue.m in Sources */,
 				9E8222261C2BA27200BDE4A1 /* FSCalendarCell.m in Sources */,
 				9EF450631C3F66FE00924EED /* QNUrlSafeBase64.m in Sources */,
+				9E762E2E1C60456A00A47827 /* MJMember.m in Sources */,
 				9EE7767B1C2A3FBA00C4185A /* RegisterController.m in Sources */,
 				9EF4505F1C3F66FE00924EED /* QNEtag.m in Sources */,
+				9E762E341C60456A00A47827 /* NSObject+MJMember.m in Sources */,
 				9EF4506F1C3F66FE00924EED /* QNUploadManager.m in Sources */,
 				9EF450651C3F66FE00924EED /* QNHttpManager.m in Sources */,
 				9EE1EF4A1C5EFCD20038B6B8 /* WFBindingViewController.m in Sources */,
@@ -1033,6 +1119,7 @@
 				9E5498631C338E740060FB17 /* WFUser.m in Sources */,
 				9EF44FCF1C3F572500924EED /* SettingPasswordViewController.m in Sources */,
 				9E8222271C2BA27200BDE4A1 /* FSCalendarCollectionView.m in Sources */,
+				9E762E301C60456A00A47827 /* MJType.m in Sources */,
 				9EF450691C3F66FE00924EED /* QNUserAgent.m in Sources */,
 				9EF450B21C3F7A4A00924EED /* SDWebImageManager.m in Sources */,
 				9EF4505C1C3F66FE00924EED /* QNALAssetFile.m in Sources */,
@@ -1043,9 +1130,12 @@
 				9EF4506B1C3F66FE00924EED /* QNFileRecorder.m in Sources */,
 				9EF450B31C3F7A4A00924EED /* UIButton+WebCache.m in Sources */,
 				9E8222231C2BA27200BDE4A1 /* FSCalendar+IBExtension.m in Sources */,
+				9E762E321C60456A00A47827 /* NSObject+MJCoding.m in Sources */,
+				9E762E2D1C60456A00A47827 /* MJIvar.m in Sources */,
 				9EF28CC21C3E0B780043580C /* UserViewController.m in Sources */,
 				9E82222A1C2BA27200BDE4A1 /* FSCalendarHeader.m in Sources */,
 				9EE7769D1C2A79DC00C4185A /* MainViewController.m in Sources */,
+				9E762E2B1C60456A00A47827 /* MJConst.m in Sources */,
 				9EF450621C3F66FE00924EED /* QNSystem.m in Sources */,
 				9EE776941C2A528D00C4185A /* AFHTTPSessionManager.m in Sources */,
 				9EF4505B1C3F66FE00924EED /* GTM_Base64.m in Sources */,

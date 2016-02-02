@@ -69,6 +69,7 @@
 //    [manager.requestSerializer setValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
     NSString *url = kGetTodayDataURL;
     NSDictionary *parameters = @{@"userId":_user.user_id,@"date":dateStr,@"token":_user.token};
+
 //    NSLog(@"%@",parameters);
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"result:%@",responseObject);

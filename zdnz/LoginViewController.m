@@ -37,9 +37,10 @@
     return self;
 }
 
+// lifecycle method
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
+//    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
 //    NSLog(@"bundleID:%@",identifier);
     
     self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:PreDefM_APPID andDelegate:self];
@@ -122,11 +123,13 @@
     appDelegate.delegate = self;
 }
 
+// tap Action
 - (void)tapAction {
     [_phone resignFirstResponder];
     [_password resignFirstResponder];
 }
 
+// loginAction
 - (void)loginAction:(UIButton *)sender {
 //    MainViewController *mainViewController = [[MainViewController alloc] init];
 //    MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
@@ -155,14 +158,16 @@
 //            NSLog(@"result:%@",responseObject);
             if ([[responseObject objectForKey:@"resultCode"] integerValue] == 0) {
                 WFUser *user = [WFUser sharedUser];
+                [user setKeyValues:[responseObject objectForKey:@"user"]];
                 user.token = [responseObject objectForKey:@"token"];
-                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
-                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
-                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
-                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
-                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
-                user.imageToken = [responseObject objectForKey:@"imageToken"];
-                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
+//                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
+//                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
+//                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
+//                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
+//                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
+//                user.imageToken = [responseObject objectForKey:@"imageToken"];
+//                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
+//                NSLog(@"user:%@",[user description]);
                 [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
                 [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
                 MainViewController *mainViewController = [[MainViewController alloc] init];

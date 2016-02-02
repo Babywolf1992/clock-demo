@@ -23,6 +23,7 @@
 
 @implementation RegisterController
 
+// initMethod
 - (instancetype)init {
     if (self = [super init]) {
         self.title = @"注册";
@@ -30,6 +31,7 @@
     return self;
 }
 
+// lifecycle method
 - (void)viewDidLoad {
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -81,6 +83,7 @@
     [self.view addGestureRecognizer:tap];
 }
 
+// regist Action
 - (void)registerAction:(UIButton *)sender {
     if (_phone.text.length == 0) {
         [self showAlertViewCtrl:@"请输入手机号"];
@@ -102,11 +105,13 @@
             if ([responseObject objectForKey:@"resultCode"] == 0) {
                 // 注册成功
                 WFUser *user = [WFUser sharedUser];
-                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
-                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
-                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
-                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
-                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
+                [user setKeyValues:[responseObject objectForKey:@"user"]];
+                user.token = [responseObject objectForKey:@"token"];
+//                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
+//                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
+//                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
+//                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
+//                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
                 MainViewController *mainViewCtroller = [[MainViewController alloc] init];
                 MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewCtroller];
                 self.view.window.rootViewController = nav;

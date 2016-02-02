@@ -30,21 +30,19 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     _field = [[UITextField alloc] initWithFrame:CGRectMake(0, 20+64, self.view.width, 35)];
     _field.placeholder = @"输入一个用户名";
-//    _field.layer.borderWidth = 2;
-//    _field.layer.borderColor = [UIColor grayColor].CGColor;
+    [self leftView:_field];
     [self.view addSubview:_field];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, _field.bottom, self.view.width, 2)];
     view.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:view];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.width/2-40, _field.bottom+18, 80, 28)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(30, _field.bottom+18, self.view.width-60, 30)];
     btn.backgroundColor = [UIColor redColor];
     btn.layer.cornerRadius = 7;
     [btn setTitle:@"确认" forState:UIControlStateNormal];
@@ -82,6 +80,12 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
     }];
+}
+
+- (void)leftView:(UITextField *)field {
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(field.left, field.top, 10, field.height)];
+    field.leftView = leftView;
+    field.leftViewMode = UITextFieldViewModeAlways;
 }
 
 @end

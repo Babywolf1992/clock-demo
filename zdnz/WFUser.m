@@ -15,8 +15,13 @@ static WFUser *userInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         userInstance = [[self alloc] init];
+        userInstance.imageURL = @"";
     });
     return userInstance;
+}
+
+- (NSDictionary *)replacedKeyFromPropertyName {
+    return @{@"imageURL":@"imageUrl",@"user_id":@"_id"};
 }
 
 - (NSString *)description {

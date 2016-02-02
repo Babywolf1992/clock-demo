@@ -10,6 +10,7 @@
 #import "UIViewExt.h"
 #import "NSArray+Log.h"
 #import "NSArray+Log.h"
+#import "NSObject+MJKeyValue.h"
 
 #define kDebug 1
 
@@ -57,4 +58,6 @@
 #define kModifyAnnURL [NSString stringWithFormat:@"%@/service/event/updateAnniversary",kBaseURL]
 
 #define kModifyUserURL [NSString stringWithFormat:@"%@/service/users/updateUser",kBaseURL]
+
+#define kSendMessage [NSString stringWithFormat:@"%@/service/users/sendMessage",kBaseURL]
 

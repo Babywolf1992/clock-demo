@@ -13,6 +13,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "QiniuSDK.h"
 #import "UIImageView+WebCache.h"
+#import "WFBindPhoneController.h"
 
 @interface UserViewController()
 
@@ -51,7 +52,7 @@
 
 #pragma mark - UITableViewDataSource Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -113,6 +114,17 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
             break;
+        case 5:
+        {
+            cell.textLabel.text = @"绑定手机号";
+//            cell.accessoryType = _user.phone.length == 0 ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+            if (_user.phone.length == 0) {
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+        }
+            break;
         default:
             break;
     }
@@ -138,8 +150,15 @@
         SettingViewController *settingCtrl = [[SettingViewController alloc] initWithMessage:@"email"];
         [self.navigationController pushViewController:settingCtrl animated:YES];
     }else if (indexPath.row == 4) {
+        //修改密码
         SettingPasswordViewController *setpadCtrl = [[SettingPasswordViewController alloc] init];
         [self.navigationController pushViewController:setpadCtrl animated:YES];
+    }else if (indexPath.row == 5) {
+        //绑定手机号
+        if (_user.phone.length != 0) {
+            WFBindPhoneController *bindingCtrl = [[WFBindPhoneController alloc] init];
+            [self.navigationController pushViewController:bindingCtrl animated:YES];
+        }
     }
 }
 
