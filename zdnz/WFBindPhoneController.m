@@ -20,6 +20,13 @@
 
 @implementation WFBindPhoneController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.title = @"绑定手机号";
+    }
+    return self;
+}
+
 // liftcycle method
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,8 +91,12 @@
     NSDictionary *parameters = @{@"phone":_phoneField.text};
     NSString *url = kSendMessage;
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //成功
         NSLog(@"%@",responseObject);
+        if ([[responseObject objectForKey:@"resultCode"] intValue] == 0) {
+            //成功
+        }else {
+            //失败
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
     }];
