@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uJz-Iv-zRN">
             <objects>
-                <navigationController id="J0Y-Fx-lDv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BaseNav" id="J0Y-Fx-lDv" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OnH-Z9-6cj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

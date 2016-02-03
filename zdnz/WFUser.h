@@ -10,6 +10,8 @@
 
 #define USERPHONE @"phone"
 #define USERPASSWORD @"password"
+#define USERPLATFORM @"platform"
+#define USEROPENID @"openId"
 
 @interface WFUser : NSObject
 

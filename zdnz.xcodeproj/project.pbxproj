@@ -63,6 +63,7 @@
 		9EE02F551C28EF720017F072 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE02F541C28EF720017F072 /* LoginViewController.m */; };
 		9EE02F591C28F73C0017F072 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE02F581C28F73C0017F072 /* UIViewExt.m */; };
 		9EE1EF4A1C5EFCD20038B6B8 /* WFBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EF491C5EFCD20038B6B8 /* WFBindingViewController.m */; };
+		9EE406F01C61F0EB00635CC2 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE406EF1C61F0EB00635CC2 /* BaseNavigationController.m */; };
 		9EE4D2B01C3B5C8D006359A1 /* WFAnniversary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4D2AF1C3B5C8D006359A1 /* WFAnniversary.m */; };
 		9EE4D2B31C3B9D64006359A1 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4D2B21C3B9D64006359A1 /* ModifyViewController.m */; };
 		9EE7767B1C2A3FBA00C4185A /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7767A1C2A3FBA00C4185A /* RegisterController.m */; };
@@ -259,6 +260,8 @@
 		9EE1EF481C5EFCD20038B6B8 /* WFBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBindingViewController.h; sourceTree = "<group>"; };
 		9EE1EF491C5EFCD20038B6B8 /* WFBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBindingViewController.m; sourceTree = "<group>"; };
 		9EE1EF4E1C5F3CE60038B6B8 /* SinaOAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaOAuthDelegate.h; sourceTree = "<group>"; };
+		9EE406EE1C61F0EB00635CC2 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		9EE406EF1C61F0EB00635CC2 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		9EE4D2AE1C3B5C8D006359A1 /* WFAnniversary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFAnniversary.h; sourceTree = "<group>"; };
 		9EE4D2AF1C3B5C8D006359A1 /* WFAnniversary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFAnniversary.m; sourceTree = "<group>"; };
 		9EE4D2B11C3B9D64006359A1 /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				9E5498601C338E5C0060FB17 /* entity */,
 				9EF28CC41C3E32DF0043580C /* service */,
 				9EE1EF4E1C5F3CE60038B6B8 /* SinaOAuthDelegate.h */,
+				9EE406EE1C61F0EB00635CC2 /* BaseNavigationController.h */,
+				9EE406EF1C61F0EB00635CC2 /* BaseNavigationController.m */,
 				9E118D891C27F60A007A052A /* AppDelegate.h */,
 				9E118D8A1C27F60A007A052A /* AppDelegate.m */,
 				9EE02F531C28EF720017F072 /* LoginViewController.h */,
@@ -1049,6 +1054,7 @@
 				9EF450981C3F68C100924EED /* QNHosts.m in Sources */,
 				9EF4509B1C3F68C100924EED /* QNDes.m in Sources */,
 				9E82222E1C2BA27200BDE4A1 /* NSString+FSExtension.m in Sources */,
+				9EE406F01C61F0EB00635CC2 /* BaseNavigationController.m in Sources */,
 				9EE776921C2A528D00C4185A /* AFHTTPRequestOperation.m in Sources */,
 				9E762E101C6041E800A47827 /* WFBindPhoneController.m in Sources */,
 				9EF4505E1C3F66FE00924EED /* QNCrc32.m in Sources */,

@@ -105,7 +105,8 @@
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":self.user.token,@"password":_newpsd.text};
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"result:%@",responseObject);
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [[NSUserDefaults standardUserDefaults] setObject:_newpsd.text forKey:USERPASSWORD];
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
     }];

@@ -14,6 +14,7 @@
 #import "QiniuSDK.h"
 #import "UIImageView+WebCache.h"
 #import "WFBindPhoneController.h"
+#import "LoginViewController.h"
 
 @interface UserViewController()
 
@@ -42,12 +43,29 @@
 //    _tableView.separatorInset
     [self.view addSubview:_tableView];
     [self clearExtraLine:_tableView];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(30, self.view.height-50, self.view.width-60, 30)];
+    [btn setTitle:@"注销" forState:UIControlStateNormal];
+    btn.layer.cornerRadius = 5;
+    [btn setBackgroundColor:[UIColor redColor]];
+    [btn addTarget:self action:@selector(logoutAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _usernameLabel.text = _user.username;
     _emailLabel.text = _user.email;
+}
+
+- (void)logoutAction:(UIButton *)sender {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPLATFORM];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPASSWORD];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPHONE];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USEROPENID];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navCtrl = [storyboard instantiateViewControllerWithIdentifier:@"BaseNav"];
+    self.view.window.rootViewController = navCtrl;
 }
 
 #pragma mark - UITableViewDataSource Method

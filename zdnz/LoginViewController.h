@@ -17,4 +17,6 @@
 
 @property (nonatomic, strong) TencentOAuth *tencentOAuth;
 
+- (void)thirdLogin:(NSDictionary *)dic;
+
 @end

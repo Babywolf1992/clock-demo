@@ -23,6 +23,7 @@
     
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kSINA_AppKey];
+//    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"]];
     return YES;
 }
 

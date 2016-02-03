@@ -57,6 +57,7 @@
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, self.view.width, 260)];
     _datePicker.datePickerMode = UIDatePickerModeTime;
     _datePicker.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.1];
+    [_datePicker setTimeZone:[NSTimeZone defaultTimeZone]];
     [self.view addSubview:_datePicker];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd hh-mm"];
@@ -353,9 +354,12 @@
 - (void)modifyClock {
     _clock.title = _titleField.text;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
+//    NSLocale *nf = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+//    df.locale = nf;
     [df setDateFormat:@"yyyy-MM-dd hh:mm"];
     _clock.remindTime = [df stringFromDate:_datePicker.date];
-    
+    NSLog(@"%@",_datePicker.date);
+    NSLog(@"%@",_clock.remindTime);
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];

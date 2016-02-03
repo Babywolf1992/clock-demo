@@ -38,11 +38,22 @@
 }
 
 // lifecycle method
+- (void)loadView {
+    [super loadView];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:USEROPENID] && [[NSUserDefaults standardUserDefaults] objectForKey:USERPLATFORM]) {
+        NSDictionary *dic = @{@"platform":[[NSUserDefaults standardUserDefaults] objectForKey:USERPLATFORM],@"openId":[[NSUserDefaults standardUserDefaults] objectForKey:USEROPENID]};
+        [self thirdLogin:dic];
+    }else if ([[NSUserDefaults standardUserDefaults] objectForKey:USERPHONE] && [[NSUserDefaults standardUserDefaults] objectForKey:USERPASSWORD]) {
+        NSDictionary *dic = @{@"phone":[[NSUserDefaults standardUserDefaults] objectForKey:USERPHONE],@"password":[[NSUserDefaults standardUserDefaults] objectForKey:USERPASSWORD]};
+        [self doLogin:dic];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
 //    NSLog(@"bundleID:%@",identifier);
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:PreDefM_APPID andDelegate:self];
 
     NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:USERPHONE];
@@ -148,31 +159,37 @@
     }else if (_password.text.length == 0) {
         [self showAlertViewCtrl:@"请输入密码"];
     }else {
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];
-        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
         NSDictionary *parameters = @{@"phone":_phone.text, @"password":_password.text};
-        NSString *url = kLoginURL;
-//        NSLog(@"%@",parameters);
-        [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"result:%@",responseObject);
-            if ([[responseObject objectForKey:@"resultCode"] integerValue] == 0) {
-                WFUser *user = [WFUser sharedUser];
-                [user setKeyValues:[responseObject objectForKey:@"user"]];
-                user.token = [responseObject objectForKey:@"token"];
-                
-                [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
-                [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
-                MainViewController *mainViewController = [[MainViewController alloc] init];
-                MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
-                self.view.window.rootViewController = nav;
-            }else {
-                [self showAlertViewCtrl:[responseObject objectForKey:@"resultMessage"]];
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"error:%@",error);
-        }];
+        [self doLogin:parameters];
     }
+}
+
+- (void)doLogin:(NSDictionary *)dic {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSString *url = kLoginURL;
+    //        NSLog(@"%@",parameters);
+    [manager POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"result:%@",responseObject);
+        if ([[responseObject objectForKey:@"resultCode"] integerValue] == 0) {
+            WFUser *user = [WFUser sharedUser];
+            [user setKeyValues:[responseObject objectForKey:@"user"]];
+            user.token = [responseObject objectForKey:@"token"];
+            
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPLATFORM];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USEROPENID];
+            [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
+            [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
+            MainViewController *mainViewController = [[MainViewController alloc] init];
+            MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
+            self.view.window.rootViewController = nav;
+        }else {
+            [self showAlertViewCtrl:[responseObject objectForKey:@"resultMessage"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error:%@",error);
+    }];
 }
 
 - (IBAction)registerAction:(id)sender {
@@ -294,8 +311,10 @@
                 [user setKeyValues:[responseObject objectForKey:@"user"]];
                 user.token = [responseObject objectForKey:@"token"];
 //                NSLog(@"user:%@",user);
-                [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
-                [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPHONE];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPASSWORD];
+                [[NSUserDefaults standardUserDefaults] setObject:user.platform forKey:USERPLATFORM];
+                [[NSUserDefaults standardUserDefaults] setObject:user.openId forKey:USEROPENID];
                 MainViewController *mainViewController = [[MainViewController alloc] init];
                 MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
                 self.view.window.rootViewController = nav;
@@ -335,20 +354,22 @@
         NSString *url = kThirdLoginURL;
         [manager POST:url parameters:dicts success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //success
-//            NSLog(@"result:%@",responseObject);
+            //            NSLog(@"result:%@",responseObject);
             if ([[responseObject objectForKey:@"resultCode"] intValue] == 101) {
                 //绑定
                 NSMutableDictionary *mdic = [[NSMutableDictionary alloc] initWithDictionary:dicts];
                 [mdic setObject:imageUrl forKey:@"imageUrl"];
-//                NSLog(@"%@",mdic);
+                //                NSLog(@"%@",mdic);
                 [self setupBinding:mdic];
             }else if ([[responseObject objectForKey:@"resultCode"] intValue] == 0){
                 //登陆成功
                 WFUser *user = [WFUser sharedUser];
                 [user setKeyValues:[responseObject objectForKey:@"user"]];
                 user.token = [responseObject objectForKey:@"token"];
-                [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
-                [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPHONE];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPASSWORD];
+                [[NSUserDefaults standardUserDefaults] setObject:user.platform forKey:USERPLATFORM];
+                [[NSUserDefaults standardUserDefaults] setObject:user.openId forKey:USEROPENID];
                 MainViewController *mainViewController = [[MainViewController alloc] init];
                 MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
                 self.view.window.rootViewController = nav;
@@ -356,6 +377,32 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"error:%@",error);
         }];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error:%@",error);
+    }];
+}
+
+- (void)thirdLogin:(NSDictionary *)dic {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSString *url = kThirdLoginURL;
+    [manager POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //success
+//        NSLog(@"result:%@",responseObject);
+        if ([[responseObject objectForKey:@"resultCode"] intValue] == 0){
+            //登陆成功
+            WFUser *user = [WFUser sharedUser];
+            [user setKeyValues:[responseObject objectForKey:@"user"]];
+            user.token = [responseObject objectForKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPHONE];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPASSWORD];
+            [[NSUserDefaults standardUserDefaults] setObject:user.platform forKey:USERPLATFORM];
+            [[NSUserDefaults standardUserDefaults] setObject:user.openId forKey:USEROPENID];
+            MainViewController *mainViewController = [[MainViewController alloc] init];
+            MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
+            self.view.window.rootViewController = nav;
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
     }];
