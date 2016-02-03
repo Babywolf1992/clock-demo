@@ -15,7 +15,7 @@
 #define kDebug 1
 
 #if kDebug == 1
-#define kBaseURL @"http://192.168.10.16:4000"
+#define kBaseURL @"http://10.10.3.151:4000"
 #else
 #define kBaseURL @"http://192.168.10.16:3000"
 #endif
@@ -30,7 +30,7 @@
 // url地址
 #define kBaseImageURL @"http://7xohfg.com1.z0.glb.clouddn.com/"
 
-#define kGetImageToken [NSString stringWithFormat:@"%@/service/users/updateImage",kBaseURL]
+#define kGetImageToken [NSString stringWithFormat:@"%@/service/event/updateImage",kBaseURL]
 
 #define kRegisterURL [NSString stringWithFormat:@"%@/service/users/register",kBaseURL]
 #define kLoginURL [NSString stringWithFormat:@"%@/service/users/login",kBaseURL]
@@ -57,7 +57,7 @@
 #define kModifyMeetingURL [NSString stringWithFormat:@"%@/service/event/updateMeeting",kBaseURL]
 #define kModifyAnnURL [NSString stringWithFormat:@"%@/service/event/updateAnniversary",kBaseURL]
 
-#define kModifyUserURL [NSString stringWithFormat:@"%@/service/users/updateUser",kBaseURL]
+#define kModifyUserURL [NSString stringWithFormat:@"%@/service/event/updateUser",kBaseURL]
 
 #define kSendMessage [NSString stringWithFormat:@"%@/service/users/sendMessage",kBaseURL]
 

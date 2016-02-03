@@ -122,7 +122,8 @@
 #pragma mark - view appear Method
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self loadData];
+#warning loadData
+//    [self loadData];
 }
 
 #pragma mark - load view Method

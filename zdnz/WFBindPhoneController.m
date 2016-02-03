@@ -12,6 +12,8 @@
 #import "WFUtils.h"
 #import "AFNetworking.h"
 @interface WFBindPhoneController()
+
+@property (nonatomic, strong) dispatch_source_t timer;
 @property (nonatomic, strong) UITextField *phoneField;
 @property (nonatomic, strong) UITextField *verifyField;
 @property (nonatomic, strong) UIButton *verifyBtn;
@@ -47,9 +49,11 @@
     
     _verifyBtn = [[UIButton alloc] initWithFrame:CGRectMake(_verifyField.right-90, 4, 80, _verifyField.height-8)];
     [_verifyBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    _verifyBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [_verifyBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_verifyBtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    _verifyBtn.layer.borderWidth = 1;
+    _verifyBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    _verifyBtn.layer.cornerRadius = 5;
     _verifyBtn.enabled = NO;
     [_verifyBtn addTarget:self action:@selector(getVeridation) forControlEvents:UIControlEventTouchUpInside];
     [_verifyField addSubview:_verifyBtn];
@@ -68,6 +72,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:_phoneField];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (_timer) {
+        dispatch_source_cancel(_timer);
+    }
+}
+
 - (void)textDidChange {
     BOOL flag = [WFUtils validateMobile:_phoneField.text];
     if (flag) {
@@ -84,7 +95,9 @@
 }
 
 - (void)getVeridation {
-    NSLog(@"getVeridation");
+//    NSLog(@"getVeridation");
+    // 多线程启动NSTimer
+    [self startTimer];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -94,6 +107,7 @@
         NSLog(@"%@",responseObject);
         if ([[responseObject objectForKey:@"resultCode"] intValue] == 0) {
             //成功
+            
         }else {
             //失败
         }
@@ -102,8 +116,59 @@
     }];
 }
 
-- (void)commentAction:(UIButton *)sender {
+-(void)startTimer{
+    __block int timeout=59; //倒计时时间
+    _verifyBtn.titleLabel.font = [UIFont systemFontOfSize:18];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout <= 0){ //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                [_verifyBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
+                _verifyBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+                _verifyField.userInteractionEnabled = YES;
+                _verifyBtn.userInteractionEnabled = YES;
+            });
+        }else{
+            int seconds = timeout % 60;
+            NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+//                NSLog(@"____%@",strTime);
+                [_verifyBtn setTitle:[NSString stringWithFormat:@"%@秒",strTime] forState:UIControlStateNormal];
+                _verifyField.userInteractionEnabled = NO;
+                _verifyBtn.userInteractionEnabled = NO;
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+}
+
+- (void)commentAction:(UIButton *)sender {
+    WFUser *user = [WFUser sharedUser];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSString *url = kThirdBindUserURL;
+    NSDictionary *parameters = @{@"openId":user.openId,@"platform":user.platform,@"phone":_phoneField.text,@"code":_verifyField.text};
+    NSLog(@"%@",parameters);
+    [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // 成功
+        NSLog(@"%@",responseObject);
+        if ([[responseObject objectForKey:@"resultCode"] intValue] == 0) {
+            WFUser *user = [WFUser sharedUser];
+            [user setKeyValues:[responseObject objectForKey:@"user"]];
+            user.token = [responseObject objectForKey:@"token"];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // 失败
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)dealloc {

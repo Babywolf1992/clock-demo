@@ -160,14 +160,7 @@
                 WFUser *user = [WFUser sharedUser];
                 [user setKeyValues:[responseObject objectForKey:@"user"]];
                 user.token = [responseObject objectForKey:@"token"];
-//                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
-//                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
-//                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
-//                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
-//                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
-//                user.imageToken = [responseObject objectForKey:@"imageToken"];
-//                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
-//                NSLog(@"user:%@",[user description]);
+                
                 [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
                 [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
                 MainViewController *mainViewController = [[MainViewController alloc] init];
@@ -300,15 +293,7 @@
                 WFUser *user = [WFUser sharedUser];
                 [user setKeyValues:[responseObject objectForKey:@"user"]];
                 user.token = [responseObject objectForKey:@"token"];
-//                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
-//                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
-//                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
-//                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
-//                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
-//                user.imageToken = [responseObject objectForKey:@"imageToken"];
-//                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
-//                user.platform = [[responseObject objectForKey:@"user"] objectForKey:@"platform"];
-//                user.openId = [[responseObject objectForKey:@"user"] objectForKey:@"openId"];
+//                NSLog(@"user:%@",user);
                 [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
                 [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
                 MainViewController *mainViewController = [[MainViewController alloc] init];
@@ -362,15 +347,6 @@
                 WFUser *user = [WFUser sharedUser];
                 [user setKeyValues:[responseObject objectForKey:@"user"]];
                 user.token = [responseObject objectForKey:@"token"];
-//                user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
-//                user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
-//                user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
-//                user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
-//                user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
-//                user.imageToken = [responseObject objectForKey:@"imageToken"];
-//                user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
-//                user.platform = [[responseObject objectForKey:@"user"] objectForKey:@"platform"];
-//                user.openId = [[responseObject objectForKey:@"user"] objectForKey:@"openId"];
                 [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
                 [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
                 MainViewController *mainViewController = [[MainViewController alloc] init];

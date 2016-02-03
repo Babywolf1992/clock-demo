@@ -61,21 +61,16 @@
         NSLog(@"result:%@",responseObject);
         if ([[responseObject objectForKey:@"resultCode"] intValue] == 0) {
             WFUser *user = [WFUser sharedUser];
+            [user setKeyValues:[responseObject objectForKey:@"user"]];
             user.token = [responseObject objectForKey:@"token"];
-            user.user_id = [[responseObject objectForKey:@"user"] objectForKey:@"_id"];
-            user.email = [[responseObject objectForKey:@"user"] objectForKey:@"email"];
-            user.password = [[responseObject objectForKey:@"user"] objectForKey:@"password"];
-            user.phone = [[responseObject objectForKey:@"user"] objectForKey:@"phone"];
-            user.username = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
-            user.imageToken = [responseObject objectForKey:@"imageToken"];
-            user.imageURL = [[responseObject objectForKey:@"user"] objectForKey:@"imageUrl"];
-            user.platform = [[responseObject objectForKey:@"user"] objectForKey:@"platform"];
-            user.openId = [[responseObject objectForKey:@"user"] objectForKey:@"openId"];
+
             [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
             [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
             MainViewController *mainViewController = [[MainViewController alloc] init];
             MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
             self.view.window.rootViewController = nav;
+        }else if ([[responseObject objectForKey:@"resultCode"] intValue] == 108) {
+            [self showAlertViewCtrl:@"该用户名已存在"];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
@@ -86,6 +81,17 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(field.left, field.top, 10, field.height)];
     field.leftView = leftView;
     field.leftViewMode = UITextFieldViewModeAlways;
+}
+
+- (void)showAlertViewCtrl:(NSString *)message {
+    _alertViewCtrl = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:_alertViewCtrl animated:YES completion:^{
+        [self performSelector:@selector(removeAlertViewCtrl) withObject:nil afterDelay:1];
+    }];
+}
+
+- (void)removeAlertViewCtrl {
+    [_alertViewCtrl dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

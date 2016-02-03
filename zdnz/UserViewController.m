@@ -52,7 +52,7 @@
 
 #pragma mark - UITableViewDataSource Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 5;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -155,7 +155,7 @@
         [self.navigationController pushViewController:setpadCtrl animated:YES];
     }else if (indexPath.row == 5) {
         //绑定手机号
-        if (_user.phone.length != 0) {
+        if (_user.phone.length == 0) {
             WFBindPhoneController *bindingCtrl = [[WFBindPhoneController alloc] init];
             [self.navigationController pushViewController:bindingCtrl animated:YES];
         }
@@ -223,7 +223,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSDictionary *pars = @{@"userId":self.user.user_id,@"token":self.user.token};
     [manager POST:kGetImageToken parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"getImageToken:%@",responseObject);
+//        NSLog(@"getImageToken:%@",responseObject);
         imageToken = [responseObject objectForKey:@"imageToken"];
         //图片上传
         QNUploadManager *upManager = [[QNUploadManager alloc] init];
@@ -243,8 +243,8 @@
                           NSString *imageUrl = [NSString stringWithFormat:@"%@%@",kBaseImageURL,key];
                           //                      NSLog(@"%@",imageUrl);
                           NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":self.user.token,@"imageUrl":imageUrl};
-                          [manager POST:kModifyUserURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                              //                          NSLog(@"result:%@",responseObject);
+                          [manager POST:kModifyUserURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
+                              NSLog(@"result:%@",responseObject);
                               _imageView.image = image;
                               _user.imageURL = imageUrl;
                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
