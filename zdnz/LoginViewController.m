@@ -17,6 +17,7 @@
 #import "WFUser.h"
 #import "WeiboSDK.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD+MJ.h"
 
 #define kButtonWH 60
 
@@ -165,6 +166,7 @@
 }
 
 - (void)doLogin:(NSDictionary *)dic {
+    [MBProgressHUD showMessage:@"加载中..."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -172,6 +174,7 @@
     //        NSLog(@"%@",parameters);
     [manager POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
         if ([[responseObject objectForKey:@"resultCode"] integerValue] == 0) {
             WFUser *user = [WFUser sharedUser];
             [user setKeyValues:[responseObject objectForKey:@"user"]];
@@ -188,6 +191,7 @@
             [self showAlertViewCtrl:[responseObject objectForKey:@"resultMessage"]];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"error:%@",error);
     }];
 }

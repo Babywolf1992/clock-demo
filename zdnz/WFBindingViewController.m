@@ -12,6 +12,7 @@
 #import "WFUser.h"
 #import "MainViewController.h"
 #import "MainNavController.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface WFBindingViewController()
 
@@ -52,13 +53,15 @@
 
 - (void)bindingAction:(UIButton *)sender {
 //    NSLog(@"binding");
+    [MBProgressHUD showMessage:@"加载中..."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [_mdict setObject:_field.text forKey:@"username"];
     NSString *url = kThirdRegisterURL;
     [manager POST:url parameters:_mdict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"result:%@",responseObject);
+//        NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
         if ([[responseObject objectForKey:@"resultCode"] intValue] == 0) {
             WFUser *user = [WFUser sharedUser];
             [user setKeyValues:[responseObject objectForKey:@"user"]];
@@ -73,6 +76,7 @@
             [self showAlertViewCtrl:@"该用户名已存在"];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"error:%@",error);
     }];
 }

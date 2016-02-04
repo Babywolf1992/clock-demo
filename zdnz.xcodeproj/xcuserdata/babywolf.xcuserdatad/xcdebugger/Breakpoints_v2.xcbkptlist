@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zdnz/LoginViewController.m"
-            timestampString = "476178550.187578"
+            timestampString = "476246424.905246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
             landmarkName = "-getUserInfo:"
             landmarkType = "5">
          </BreakpointContent>

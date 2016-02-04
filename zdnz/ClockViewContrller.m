@@ -15,6 +15,7 @@
 #import "WFAnniversary.h"
 #import "ModifyViewController.h"
 #import "Contants.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface ClockViewContrller()
 
@@ -67,8 +68,10 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSString *url = kGetAlarmURL;
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":_user.token};
+    [MBProgressHUD showMessage:@"加载中..."];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"%@",responseObject);
+        [MBProgressHUD hideHUD];
         NSArray *arr = [responseObject objectForKey:@"alarms"];
         NSMutableArray *mArr = [NSMutableArray array];
         for (NSDictionary *dic in arr) {
@@ -87,6 +90,7 @@
         [self clearExtraLine:_tableView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
+        [MBProgressHUD hideHUD];
     }];
 }
 
@@ -96,8 +100,10 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSString *url = kGetMeetingURL;
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":_user.token};
+    [MBProgressHUD showMessage:@"加载中..."];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"%@",responseObject);
+        [MBProgressHUD hideHUD];
         NSArray *arr = [responseObject objectForKey:@"meetings"];
         NSMutableArray *mArr = [NSMutableArray array];
         for (NSDictionary *dic in arr) {
@@ -117,6 +123,7 @@
         [_tableView reloadData];
         [self clearExtraLine:_tableView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"%@",error);
     }];
 }
@@ -127,8 +134,10 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSString *url = kGetAnnURL;
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":_user.token};
+    [MBProgressHUD showMessage:@"加载中"];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"%@",responseObject);
+        [MBProgressHUD hideHUD];
         NSArray *arr = [responseObject objectForKey:@"anniversaries"];
         NSMutableArray *mArr = [NSMutableArray array];
         for (NSDictionary *dic in arr) {
@@ -149,6 +158,7 @@
         [self clearExtraLine:_tableView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
+        [MBProgressHUD hideHUD];
     }];
 }
 

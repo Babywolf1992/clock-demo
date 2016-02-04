@@ -11,6 +11,7 @@
 #import "ChooseViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Contants.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface ModifyViewController()
 
@@ -372,10 +373,13 @@
     if (_clock.repeatRule) {
         [pars setValue:_clock.repeatRule forKey:@"repeatRule"];
     }
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"%@",error);
     }];
 }
@@ -405,10 +409,13 @@
     if (_meeting.repeatRule) {
         [pars setValue:_meeting.repeatRule forKey:@"repeatRule"];
     }
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"%@",error);
     }];
 }
@@ -437,10 +444,13 @@
     if (_ann.repeatRule) {
         [pars setValue:_ann.repeatRule forKey:@"repeatRule"];
     }
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideHUD];
         NSLog(@"result:%@",responseObject);
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"%@",error);
     }];
 }

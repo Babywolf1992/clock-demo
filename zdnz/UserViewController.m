@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "WFBindPhoneController.h"
 #import "LoginViewController.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface UserViewController()
 
@@ -236,10 +237,12 @@
  */
 - (void)uploadImage:(UIImage *)image {
     __block NSString *imageToken = @"";
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSDictionary *pars = @{@"userId":self.user.user_id,@"token":self.user.token};
+    [MBProgressHUD showMessage:@"加载中..."];
     [manager POST:kGetImageToken parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"getImageToken:%@",responseObject);
         imageToken = [responseObject objectForKey:@"imageToken"];
@@ -255,6 +258,7 @@
 //        NSLog(@"%@",timeSp);
         [upManager putData:data key:timeSp token:imageToken
                   complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                      [MBProgressHUD hideHUD];
                       NSLog(@"info:%@", info);
                       NSLog(@"resp:%@", resp);
                       if (resp) {
@@ -266,6 +270,7 @@
                               _imageView.image = image;
                               _user.imageURL = imageUrl;
                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              [MBProgressHUD hideHUD];
                               NSLog(@"error:%@",error);
                           }];
                       }
@@ -273,6 +278,7 @@
                   } option:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"error:%@",error);
     }];
 }

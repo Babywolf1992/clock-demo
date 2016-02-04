@@ -9,6 +9,7 @@
 #import "SettingPasswordViewController.h"
 #import "Contants.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface SettingPasswordViewController()
 
@@ -103,11 +104,14 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSString *url = kModifyUserURL;
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":self.user.token,@"password":_newpsd.text};
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
         [[NSUserDefaults standardUserDefaults] setObject:_newpsd.text forKey:USERPASSWORD];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"error:%@",error);
     }];
 }

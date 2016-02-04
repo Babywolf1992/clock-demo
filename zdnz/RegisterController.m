@@ -14,6 +14,7 @@
 #import "MainNavController.h"
 #import "WFUser.h"
 #import "UIViewExt.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface RegisterController()
 
@@ -186,14 +187,15 @@
     }else if (_password.text.length == 0) {
         [self showAlertViewCtrl:@"请输入密码"];
     }else {
+        [MBProgressHUD showMessage:@"加载中..."];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         NSDictionary *parameters = @{@"phone":_phone.text, @"password":_password.text, @"username":_username.text,@"code":_verifyField.text};
-
         NSString *url = kRegisterURL;
         [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"JSON:%@",responseObject);
+//            NSLog(@"JSON:%@",responseObject);
+            [MBProgressHUD hideHUD];
             if ([[responseObject objectForKey:@"resultCode"]intValue] == 0) {
                 // 注册成功
                 WFUser *user = [WFUser sharedUser];
@@ -212,6 +214,7 @@
                 [self showAlertViewCtrl:@"用户名已存在"];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [MBProgressHUD hideHUD];
             NSLog(@"error:%@",error);
         }];
     }

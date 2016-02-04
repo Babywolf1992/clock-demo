@@ -11,6 +11,7 @@
 #import "ChooseViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "ClockViewContrller.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface AddViewController ()
 
@@ -462,14 +463,17 @@
     if (_clock.repeatType == 0) {
         [par setValue:_clock.repeatRule forKey:@"repeatRule"];
     }
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:par success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success:%@",responseObject);
+        [MBProgressHUD hideHUD];
 //        [self showAlertViewCtrl:@"闹钟添加成功"];
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeClock];
         [self.navigationController pushViewController:clockCtrl animated:YES];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@",error);
+        [MBProgressHUD hideHUD];
     }];
 }
 
@@ -497,11 +501,14 @@
         [par setValue:_meeting.repeatRule forKey:@"repeatRule"];
     }
 //    NSLog(@"%@",par);
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:par success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
+        [MBProgressHUD hideHUD];
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeMeeting];
         [self.navigationController pushViewController:clockCtrl animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"%@",error);
     }];
 }
@@ -531,12 +538,15 @@
         [par setValue:_ann.repeatRule forKey:@"repeatRule"];
     }
     //    NSLog(@"%@",par);
+    [MBProgressHUD showMessage:nil];
     [manager POST:url parameters:par success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
+        [MBProgressHUD hideHUD];
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeAnniversary];
         [self.navigationController pushViewController:clockCtrl animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
+        [MBProgressHUD hideHUD];
     }];
 }
 

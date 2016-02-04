@@ -78,6 +78,9 @@
 		9EE7769A1C2A528D00C4185A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE776911C2A528D00C4185A /* AFURLSessionManager.m */; };
 		9EE7769D1C2A79DC00C4185A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7769C1C2A79DC00C4185A /* MainViewController.m */; };
 		9EE776A01C2AA15500C4185A /* WFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7769F1C2AA15500C4185A /* WFUtils.m */; };
+		9EE7B7C21C62EBBD0034CFDD /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7B7BE1C62EBBD0034CFDD /* MBProgressHUD+MJ.m */; };
+		9EE7B7C31C62EBBD0034CFDD /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EE7B7BF1C62EBBD0034CFDD /* MBProgressHUD.bundle */; };
+		9EE7B7C41C62EBBD0034CFDD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7B7C11C62EBBD0034CFDD /* MBProgressHUD.m */; };
 		9EE7CF781C34C30F00689164 /* ChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF771C34C30F00689164 /* ChooseViewController.m */; };
 		9EE7CF7B1C34CE3800689164 /* ChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF7A1C34CE3800689164 /* ChooseCell.m */; };
 		9EE7CF7E1C35066600689164 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE7CF7D1C35066600689164 /* NSArray+Log.m */; };
@@ -291,6 +294,11 @@
 		9EE7769C1C2A79DC00C4185A /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9EE7769E1C2AA15500C4185A /* WFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUtils.h; sourceTree = "<group>"; };
 		9EE7769F1C2AA15500C4185A /* WFUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUtils.m; sourceTree = "<group>"; };
+		9EE7B7BD1C62EBBD0034CFDD /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		9EE7B7BE1C62EBBD0034CFDD /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		9EE7B7BF1C62EBBD0034CFDD /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		9EE7B7C01C62EBBD0034CFDD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9EE7B7C11C62EBBD0034CFDD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9EE7CF761C34C30F00689164 /* ChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseViewController.h; sourceTree = "<group>"; };
 		9EE7CF771C34C30F00689164 /* ChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseViewController.m; sourceTree = "<group>"; };
 		9EE7CF791C34CE3800689164 /* ChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCell.h; sourceTree = "<group>"; };
@@ -516,6 +524,7 @@
 		9E118D861C27F60A007A052A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9EE7B7BC1C62EBBD0034CFDD /* MBProgressHUD */,
 				9E762E121C60456A00A47827 /* MJExtension */,
 				9E762E111C60453800A47827 /* framework */,
 				9E64647E1C5DDF8C00387D87 /* libWeiboSDK */,
@@ -720,6 +729,18 @@
 				9EE776911C2A528D00C4185A /* AFURLSessionManager.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		9EE7B7BC1C62EBBD0034CFDD /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9EE7B7BD1C62EBBD0034CFDD /* MBProgressHUD+MJ.h */,
+				9EE7B7BE1C62EBBD0034CFDD /* MBProgressHUD+MJ.m */,
+				9EE7B7BF1C62EBBD0034CFDD /* MBProgressHUD.bundle */,
+				9EE7B7C01C62EBBD0034CFDD /* MBProgressHUD.h */,
+				9EE7B7C11C62EBBD0034CFDD /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		9EF28CC41C3E32DF0043580C /* service */ = {
@@ -1019,6 +1040,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E82222C1C2BA27200BDE4A1 /* Info.plist in Resources */,
+				9EE7B7C31C62EBBD0034CFDD /* MBProgressHUD.bundle in Resources */,
 				9E118D961C27F60A007A052A /* LaunchScreen.storyboard in Resources */,
 				9E118D931C27F60A007A052A /* Assets.xcassets in Resources */,
 				9EA2ECC11C5C7C5F00EAB20A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
@@ -1053,6 +1075,7 @@
 				9EE776971C2A528D00C4185A /* AFURLConnectionOperation.m in Sources */,
 				9EF450981C3F68C100924EED /* QNHosts.m in Sources */,
 				9EF4509B1C3F68C100924EED /* QNDes.m in Sources */,
+				9EE7B7C41C62EBBD0034CFDD /* MBProgressHUD.m in Sources */,
 				9E82222E1C2BA27200BDE4A1 /* NSString+FSExtension.m in Sources */,
 				9EE406F01C61F0EB00635CC2 /* BaseNavigationController.m in Sources */,
 				9EE776921C2A528D00C4185A /* AFHTTPRequestOperation.m in Sources */,
@@ -1109,6 +1132,7 @@
 				9EF450681C3F66FE00924EED /* QNStats.m in Sources */,
 				9E54985F1C3387480060FB17 /* AddViewController.m in Sources */,
 				9E762E331C60456A00A47827 /* NSObject+MJKeyValue.m in Sources */,
+				9EE7B7C21C62EBBD0034CFDD /* MBProgressHUD+MJ.m in Sources */,
 				9E8222261C2BA27200BDE4A1 /* FSCalendarCell.m in Sources */,
 				9EF450631C3F66FE00924EED /* QNUrlSafeBase64.m in Sources */,
 				9E762E2E1C60456A00A47827 /* MJMember.m in Sources */,

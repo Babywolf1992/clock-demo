@@ -9,6 +9,7 @@
 #import "SettingViewController.h"
 #import "Contants.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface SettingViewController()
 @property (nonatomic, strong) UITextField *field;
@@ -75,9 +76,11 @@
     }else if ([_message isEqualToString:@"email"]) {
         key = @"email";
     }
+    [MBProgressHUD showMessage:nil];
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":self.user.token,key:_field.text};
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
         if ([_message  isEqualToString:@"username"]) {
             self.user.username = _field.text;
         }else if ([_message isEqualToString:@"email"]) {
@@ -85,6 +88,7 @@
         }
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"error:%@",error);
     }];
 }
