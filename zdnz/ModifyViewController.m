@@ -60,7 +60,7 @@
     [_datePicker setTimeZone:[NSTimeZone defaultTimeZone]];
     [self.view addSubview:_datePicker];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd hh-mm"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSLog(@"%d",_mode);
     if (_mode == 0) {
         NSDate *date = [df dateFromString:_clock.remindTime];
@@ -354,9 +354,7 @@
 - (void)modifyClock {
     _clock.title = _titleField.text;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-//    NSLocale *nf = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-//    df.locale = nf;
-    [df setDateFormat:@"yyyy-MM-dd hh:mm"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm"]; //HH:24小时制 hh:12小时制
     _clock.remindTime = [df stringFromDate:_datePicker.date];
     NSLog(@"%@",_datePicker.date);
     NSLog(@"%@",_clock.remindTime);
@@ -388,7 +386,7 @@
     _meeting.preTime = [NSString stringWithFormat:@"%d",preTime];
     _meeting.title = _meetingField.text;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd hh:mm"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm"];
     _meeting.remindTime = [df stringFromDate:_datePicker.date];
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
@@ -420,7 +418,7 @@
     _ann.advanceDays = _advanceTimeField.text;
     _ann.title = _annField.text;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd hh:mm"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm"];
     _ann.remindTime = [df stringFromDate:_datePicker.date];
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];

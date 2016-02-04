@@ -415,7 +415,7 @@
 //    NSDateFormatter *df = [[NSDateFormatter alloc] init];
 //    [df setDateFormat:@"yyyy-MM-dd"];
 //    NSString *dayStr = [df stringFromDate:_selectDay];
-//    [df setDateFormat:@"hh:mm"];
+//    [df setDateFormat:@"HH:mm"];
 //    NSString *timeStr = [df stringFromDate:_datePicker.date];
 //    NSString *remindTime = [NSString stringWithFormat:@"%@ %@",dayStr,timeStr];
 //    NSString *url = kAddAlarmURL;
@@ -447,7 +447,7 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSString *dayStr = [df stringFromDate:_selectDay];
-    [df setDateFormat:@"hh:mm"];
+    [df setDateFormat:@"HH:mm"];
     NSString *timeStr = [df stringFromDate:_datePicker.date];
     NSString *remindTime = [NSString stringWithFormat:@"%@ %@",dayStr,timeStr];
     NSString *url = kAddAlarmURL;
@@ -481,7 +481,7 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSString *dayStr = [df stringFromDate:_selectDay];
-    [df setDateFormat:@"hh:mm"];
+    [df setDateFormat:@"HH:mm"];
     NSString *timeStr = [df stringFromDate:_datePicker.date];
     NSString *remindTime = [NSString stringWithFormat:@"%@ %@",dayStr,timeStr];
     NSString *url = kAddMeetingURL;
@@ -515,7 +515,7 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSString *dayStr = [df stringFromDate:_selectDay];
-    [df setDateFormat:@"hh:mm"];
+    [df setDateFormat:@"HH:mm"];
     NSString *timeStr = [df stringFromDate:_datePicker.date];
     NSString *remindTime = [NSString stringWithFormat:@"%@ %@",dayStr,timeStr];
     NSString *url = kAddAnnURL;

@@ -68,7 +68,7 @@
     NSString *url = kGetAlarmURL;
     NSDictionary *parameters = @{@"userId":self.user.user_id,@"token":_user.token};
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         NSArray *arr = [responseObject objectForKey:@"alarms"];
         NSMutableArray *mArr = [NSMutableArray array];
         for (NSDictionary *dic in arr) {
