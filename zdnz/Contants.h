@@ -15,7 +15,8 @@
 #define kDebug 1
 
 #if kDebug == 1
-#define kBaseURL @"http://10.10.3.151:4000"
+//#define kBaseURL @"http://10.10.3.151:4000"
+#define kBaseURL @"http://todayserver.duapp.com"
 #else
 #define kBaseURL @"http://192.168.10.16:3000"
 #endif

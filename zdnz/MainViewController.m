@@ -72,10 +72,10 @@
     NSDictionary *parameters = @{@"userId":_user.user_id,@"date":dateStr,@"token":_user.token};
 
 //    NSLog(@"%@",parameters);
-    [MBProgressHUD showMessage:@"加载中..."];
+//    [MBProgressHUD showMessage:@"加载中..."];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"result:%@",responseObject);
-        [MBProgressHUD hideHUD];
+//        [MBProgressHUD hideHUD];
         NSMutableArray *mArr1 = [NSMutableArray array];
         NSMutableArray *mArr2 = [NSMutableArray array];
         NSMutableArray *mArr3 = [NSMutableArray array];
@@ -118,7 +118,7 @@
         self.anns = mArr3;
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [MBProgressHUD hideHUD];
+//        [MBProgressHUD hideHUD];
         NSLog(@"error:%@",error);
     }];
 }

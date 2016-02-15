@@ -198,13 +198,15 @@
             [MBProgressHUD hideHUD];
             if ([[responseObject objectForKey:@"resultCode"]intValue] == 0) {
                 // 注册成功
-                WFUser *user = [WFUser sharedUser];
-                [user setKeyValues:[responseObject objectForKey:@"user"]];
-                user.token = [responseObject objectForKey:@"token"];
-
-                MainViewController *mainViewCtroller = [[MainViewController alloc] init];
-                MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewCtroller];
-                self.view.window.rootViewController = nav;
+//                NSLog(@"%@",responseObject);
+//                WFUser *user = [WFUser sharedUser];
+//                [user setKeyValues:[responseObject objectForKey:@"user"]];
+//                user.token = [responseObject objectForKey:@"token"];
+                NSDictionary *parameters = @{@"phone":_phone.text, @"password":_password.text};
+                [self doLogin:parameters];
+//                MainViewController *mainViewCtroller = [[MainViewController alloc] init];
+//                MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewCtroller];
+//                self.view.window.rootViewController = nav;
             }else if ([[responseObject objectForKey:@"resultCode"]intValue] == 111){
                 // 注册失败
                 [self showAlertViewCtrl:@"验证码错误"];
@@ -243,6 +245,37 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(field.left, field.top, 10, field.height)];
     field.leftView = leftView;
     field.leftViewMode = UITextFieldViewModeAlways;
+}
+
+- (void)doLogin:(NSDictionary *)dic {
+    [MBProgressHUD showMessage:@"加载中..."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSString *url = kLoginURL;
+    //        NSLog(@"%@",parameters);
+    [manager POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"result:%@",responseObject);
+        [MBProgressHUD hideHUD];
+        if ([[responseObject objectForKey:@"resultCode"] integerValue] == 0) {
+            WFUser *user = [WFUser sharedUser];
+            [user setKeyValues:[responseObject objectForKey:@"user"]];
+            user.token = [responseObject objectForKey:@"token"];
+            
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERPLATFORM];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USEROPENID];
+            [[NSUserDefaults standardUserDefaults] setObject:user.phone forKey:USERPHONE];
+            [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:USERPASSWORD];
+            MainViewController *mainViewController = [[MainViewController alloc] init];
+            MainNavController *nav = [[MainNavController alloc] initWithRootViewController:mainViewController];
+            self.view.window.rootViewController = nav;
+        }else {
+            [self showAlertViewCtrl:[responseObject objectForKey:@"resultMessage"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
+        NSLog(@"error:%@",error);
+    }];
 }
 
 @end
