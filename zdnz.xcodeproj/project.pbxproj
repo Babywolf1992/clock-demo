@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0642251C8FC62700F3C00B /* WFNotificationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0642241C8FC62700F3C00B /* WFNotificationTool.m */; };
 		9E0C99681C390D99006DB565 /* ClockViewContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C99671C390D99006DB565 /* ClockViewContrller.m */; };
 		9E118D881C27F60A007A052A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E118D871C27F60A007A052A /* main.m */; };
 		9E118D8B1C27F60A007A052A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E118D8A1C27F60A007A052A /* AppDelegate.m */; };
@@ -152,6 +153,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E0642231C8FC62700F3C00B /* WFNotificationTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFNotificationTool.h; path = AFNetworking/WFNotificationTool.h; sourceTree = "<group>"; };
+		9E0642241C8FC62700F3C00B /* WFNotificationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFNotificationTool.m; path = AFNetworking/WFNotificationTool.m; sourceTree = "<group>"; };
 		9E0C99661C390D99006DB565 /* ClockViewContrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockViewContrller.h; sourceTree = "<group>"; };
 		9E0C99671C390D99006DB565 /* ClockViewContrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockViewContrller.m; sourceTree = "<group>"; };
 		9E118D831C27F60A007A052A /* zdnz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zdnz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,6 +749,8 @@
 		9EF28CC41C3E32DF0043580C /* service */ = {
 			isa = PBXGroup;
 			children = (
+				9E0642231C8FC62700F3C00B /* WFNotificationTool.h */,
+				9E0642241C8FC62700F3C00B /* WFNotificationTool.m */,
 			);
 			name = service;
 			sourceTree = "<group>";
@@ -1088,6 +1093,7 @@
 				9EF450641C3F66FE00924EED /* QNDns.m in Sources */,
 				9E8222241C2BA27200BDE4A1 /* FSCalendar.m in Sources */,
 				9E8222251C2BA27200BDE4A1 /* FSCalendarAppearance.m in Sources */,
+				9E0642251C8FC62700F3C00B /* WFNotificationTool.m in Sources */,
 				9EF450941C3F68C100924EED /* QNRecord.m in Sources */,
 				9EF450671C3F66FE00924EED /* QNSessionManager.m in Sources */,
 				9EF450921C3F68C100924EED /* QNDomain.m in Sources */,
