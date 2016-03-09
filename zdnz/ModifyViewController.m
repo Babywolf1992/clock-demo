@@ -12,6 +12,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Contants.h"
 #import "MBProgressHUD+MJ.h"
+#import "WFNotificationTool.h"
 
 @interface ModifyViewController()
 
@@ -377,6 +378,10 @@
     [manager POST:url parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"result:%@",responseObject);
         [MBProgressHUD hideHUD];
+        
+        //修改本地通知
+        [WFNotificationTool changeLocalNotificationWithDate:_datePicker.date object:_clock];
+        
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];
@@ -413,6 +418,10 @@
     [manager POST:url parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"result:%@",responseObject);
         [MBProgressHUD hideHUD];
+        
+        //修改本地通知
+        [WFNotificationTool changeLocalNotificationWithDate:_datePicker.date object:_meeting];
+        
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];
@@ -448,6 +457,10 @@
     [manager POST:url parameters:pars success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideHUD];
         NSLog(@"result:%@",responseObject);
+        
+        //修改本地通知
+        [WFNotificationTool changeLocalNotificationWithDate:_datePicker.date object:_ann];
+        
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];

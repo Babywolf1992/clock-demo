@@ -13,4 +13,6 @@
 
 + (void)scheduleLocalNotificationWithDate:(NSDate *)date object:(id)object;
 
++ (void)changeLocalNotificationWithDate:(NSDate *)date object:(id)object;
+
 @end

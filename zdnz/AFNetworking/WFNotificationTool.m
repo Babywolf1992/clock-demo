@@ -98,4 +98,102 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
++ (void)changeLocalNotificationWithDate:(NSDate *)date object:(id)object {
+    NSArray *array = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    if ([object isKindOfClass:[WFMeeting class]]) {
+        WFMeeting *meeting = (WFMeeting *)object;
+        for (UILocalNotification *notification in array) {
+            if ([notification.userInfo objectForKey:@"meeting_id"] == meeting.meeting_id) {
+                notification.fireDate = date;
+                notification.alertBody = meeting.title;
+                notification.alertTitle = @"会议";
+                notification.userInfo = @{@"meeting_id":meeting.meeting_id};
+                switch (meeting.repeatType) {
+                    case -1:
+                        break;
+                    case 0:
+                        //自定义规则
+                        break;
+                    case 1:
+                        notification.repeatInterval = NSCalendarUnitDay;
+                        break;
+                    case 2:
+                        //工作日规则
+                        break;
+                    case 3:
+                        notification.repeatInterval = NSCalendarUnitMonth;
+                        break;
+                    case 4:
+                        notification.repeatInterval = NSCalendarUnitYear;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }else if ([object isKindOfClass:[WFClock class]]) {
+        WFClock *clock = (WFClock *)object;
+        for (UILocalNotification *notification in array) {
+            if ([notification.userInfo objectForKey:@"clock_id"] == clock.clock_id) {
+                notification.fireDate = date;
+                notification.alertBody = clock.title;
+                notification.alertTitle = @"闹钟";
+                notification.userInfo = @{@"clock_id":clock.clock_id};
+                switch (clock.repeatType) {
+                    case -1:
+                        break;
+                    case 0:
+                        //自定义规则
+                        break;
+                    case 1:
+                        notification.repeatInterval = NSCalendarUnitDay;
+                        break;
+                    case 2:
+                        //工作日规则
+                        break;
+                    case 3:
+                        notification.repeatInterval = NSCalendarUnitMonth;
+                        break;
+                    case 4:
+                        notification.repeatInterval = NSCalendarUnitYear;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }else if ([object isKindOfClass:[WFAnniversary class]]) {
+        WFAnniversary *anni = (WFAnniversary *)object;
+        for (UILocalNotification *notification in array) {
+            if ([notification.userInfo objectForKey:@"anniversary_id"] == anni.anniversary_id) {
+                notification.fireDate = date;
+                notification.alertBody = anni.title;
+                notification.alertTitle = @"闹钟";
+                notification.userInfo = @{@"anniversary_id":anni.anniversary_id};
+                switch (anni.repeatType) {
+                    case -1:
+                        break;
+                    case 0:
+                        //自定义规则
+                        break;
+                    case 1:
+                        notification.repeatInterval = NSCalendarUnitDay;
+                        break;
+                    case 2:
+                        //工作日规则
+                        break;
+                    case 3:
+                        notification.repeatInterval = NSCalendarUnitMonth;
+                        break;
+                    case 4:
+                        notification.repeatInterval = NSCalendarUnitYear;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+}
+
 @end
