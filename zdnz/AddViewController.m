@@ -469,6 +469,10 @@
         NSLog(@"success:%@",responseObject);
         [MBProgressHUD hideHUD];
 //        [self showAlertViewCtrl:@"闹钟添加成功"];
+        
+        //闹钟推送
+        [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_clock];
+        
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeClock];
         [self.navigationController pushViewController:clockCtrl animated:YES];
         
@@ -510,34 +514,7 @@
         // 添加闹钟推送
         [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_meeting];
         
-//        UILocalNotification *notification = [[UILocalNotification alloc] init];
-//        notification.fireDate = _datePicker.date;
-//        notification.alertBody = _meeting.title;
-//        notification.alertTitle = @"会议";
-//        notification.userInfo = @{@"meeting_id":_meeting.meeting_id};
-//        switch (_meeting.repeatType) {
-//            case -1:
-//                break;
-//            case 0:
-//                //自定义规则
-//                break;
-//            case 1:
-//                notification.repeatInterval = NSCalendarUnitDay;
-//                break;
-//            case 2:
-//                //工作日规则
-//                break;
-//            case 3:
-//                notification.repeatInterval = NSCalendarUnitMonth;
-//                break;
-//            case 4:
-//                notification.repeatInterval = NSCalendarUnitYear;
-//                break;
-//            default:
-//                break;
-//        }
-//        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-        
+        //push到clockCtrl
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeMeeting];
         [self.navigationController pushViewController:clockCtrl animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -575,6 +552,10 @@
     [manager POST:url parameters:par success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
         [MBProgressHUD hideHUD];
+        
+        //闹钟推送
+        [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_ann];
+        
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeAnniversary];
         [self.navigationController pushViewController:clockCtrl animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
