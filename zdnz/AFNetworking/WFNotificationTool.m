@@ -44,9 +44,9 @@
         }
     }else if ([object isKindOfClass:[WFClock class]]) {
         WFClock *clock = (WFClock *)object;
-//        notification.alertBody = clock.title;
-//        notification.alertTitle = @"闹钟";
-//        notification.userInfo = @{@"clock_id":clock.clock_id};
+        notification.alertBody = clock.title;
+        notification.alertTitle = @"闹钟";
+        notification.userInfo = @{@"clock_id":clock.clock_id};
         switch (clock.repeatType) {
             case -1:
                 break;

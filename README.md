@@ -17,4 +17,5 @@ next task:
 #warning:
     1.本地闹钟通知没有对闹钟自定义重复方法进行判别
     2.切换用户后，本地闹钟通知的切换
+    3.notification.userInfo = @{@"meeting_id":meeting.meeting_id};因为闹钟刚添加到账号，无法获取clock_id，后面修改成时间戳的形式
     

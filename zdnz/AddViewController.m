@@ -409,39 +409,6 @@
 #pragma mark - click Method
 - (void)addClock {
     [self tapAction];
-//    NSURL *URL = [NSURL URLWithString:kAddAlarmURL];
-//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];//默认为get请求
-//    request.timeoutInterval=5.0;//设置请求超时为5秒
-//    request.HTTPMethod=@"POST";//设置请求方法
-//    //设置请求体
-//    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-//    [df setDateFormat:@"yyyy-MM-dd"];
-//    NSString *dayStr = [df stringFromDate:_selectDay];
-//    [df setDateFormat:@"HH:mm"];
-//    NSString *timeStr = [df stringFromDate:_datePicker.date];
-//    NSString *remindTime = [NSString stringWithFormat:@"%@ %@",dayStr,timeStr];
-//    NSString *url = kAddAlarmURL;
-//    NSDictionary *parameters = @{@"userId":_user.user_id,
-//                                 @"token":_user.token,
-//                                 @"title":_clock.title,
-//                                 @"remindTime":remindTime,
-//                                 @"repeatType":[NSString stringWithFormat:@"%d",_clock.repeatType]};
-//    
-//    NSMutableDictionary *par = [[NSMutableDictionary alloc] initWithDictionary:parameters];
-//    //    NSLog(@"%@",par);
-//    if (_clock.repeatType == 0) {
-//        [par setValue:_clock.repeatRule forKey:@"repeatRule"];
-//    }
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:par options:NSJSONWritingPrettyPrinted error:nil];
-//    //把拼接后的字符串转换为data，设置请求体
-//    request.HTTPBody=data;
-//    NSOperationQueue *queue=[NSOperationQueue mainQueue];
-//    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        NSLog(@"--block回调数据--%@---%lu", [NSThread currentThread],(unsigned long)data.length);
-//        NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-//         NSLog(@"%@",dict);
-//    }];
-//    return;
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -554,7 +521,7 @@
         [MBProgressHUD hideHUD];
         
         //闹钟推送
-//        [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_ann];
+        [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_ann];
         
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeAnniversary];
         [self.navigationController pushViewController:clockCtrl animated:YES];
