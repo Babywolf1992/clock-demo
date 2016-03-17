@@ -554,7 +554,7 @@
         [MBProgressHUD hideHUD];
         
         //闹钟推送
-        [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_ann];
+//        [WFNotificationTool scheduleLocalNotificationWithDate:_datePicker.date object:_ann];
         
         ClockViewContrller *clockCtrl = [[ClockViewContrller alloc] initWithMode:ShowModeAnniversary];
         [self.navigationController pushViewController:clockCtrl animated:YES];

@@ -86,7 +86,12 @@
 //        NSString *title = NSLocalizedString(@"认证结果", nil);
 //        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
         NSLog(@"%@",response.requestUserInfo);
-        NSDictionary *dict = @{@"access_token":[response.requestUserInfo objectForKey:@"access_token"],@"uid":[response.requestUserInfo objectForKey:@"uid"]};
+        NSDictionary *dict;
+        if (response.requestUserInfo) {
+            dict = @{@"access_token":[response.requestUserInfo objectForKey:@"access_token"],@"uid":[response.requestUserInfo objectForKey:@"uid"]};
+        }else {
+            return;
+        }
         if ([self.delegate respondsToSelector:@selector(getUserInfo:)]) {
             [self.delegate getUserInfo:dict];
         }
