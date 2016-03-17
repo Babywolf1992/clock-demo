@@ -1,7 +1,7 @@
 # -demo
 正点闹钟demo
 
-![Screenshot](https://github.com/babywolf1992-demo/tree/master/GIF/zdnz.gif)
+![Screenshot](https://raw.github.com/babywolf1992-demo/master/GIF/zdnz.gif)
 
 之前没有添加README，从现在开始写。
 
