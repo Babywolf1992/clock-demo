@@ -20,7 +20,7 @@
         WFMeeting *meeting = (WFMeeting *)object;
         notification.alertBody = meeting.title;
         notification.alertTitle = @"会议";
-        notification.userInfo = @{@"meeting_id":meeting.meeting_id};
+//        notification.userInfo = @{@"meeting_id":meeting.meeting_id};
         switch (meeting.repeatType) {
             case -1:
                 break;
@@ -46,7 +46,7 @@
         WFClock *clock = (WFClock *)object;
         notification.alertBody = clock.title;
         notification.alertTitle = @"闹钟";
-        notification.userInfo = @{@"clock_id":clock.clock_id};
+//        notification.userInfo = @{@"clock_id":clock.clock_id};
         switch (clock.repeatType) {
             case -1:
                 break;
@@ -72,7 +72,7 @@
         WFAnniversary *anni = (WFAnniversary *)object;
         notification.alertBody = anni.title;
         notification.alertTitle = @"纪念日";
-        notification.userInfo = @{@"anniversary_id":anni.anniversary_id};
+//        notification.userInfo = @{@"anniversary_id":anni.anniversary_id};
         switch (anni.repeatType) {
             case -1:
                 break;
@@ -107,7 +107,7 @@
                 notification.fireDate = date;
                 notification.alertBody = meeting.title;
                 notification.alertTitle = @"会议";
-                notification.userInfo = @{@"meeting_id":meeting.meeting_id};
+//                notification.userInfo = @{@"meeting_id":meeting.meeting_id};
                 switch (meeting.repeatType) {
                     case -1:
                         break;
@@ -138,7 +138,7 @@
                 notification.fireDate = date;
                 notification.alertBody = clock.title;
                 notification.alertTitle = @"闹钟";
-                notification.userInfo = @{@"clock_id":clock.clock_id};
+//                notification.userInfo = @{@"clock_id":clock.clock_id};
                 switch (clock.repeatType) {
                     case -1:
                         break;
@@ -169,7 +169,7 @@
                 notification.fireDate = date;
                 notification.alertBody = anni.title;
                 notification.alertTitle = @"闹钟";
-                notification.userInfo = @{@"anniversary_id":anni.anniversary_id};
+//                notification.userInfo = @{@"anniversary_id":anni.anniversary_id};
                 switch (anni.repeatType) {
                     case -1:
                         break;
