@@ -132,6 +132,7 @@
 
 #pragma mark - load view Method
 - (void)viewDidLoad {
+    [super viewDidLoad];
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     [button setTitle:@"个人中心" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:17];
