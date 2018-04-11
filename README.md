@@ -1,4 +1,4 @@
-# -demo
+# -demo(QQ:591138406)
 正点闹钟demo
 
 ![Screenshot](https://raw.github.com/babywolf1992/-demo/master/GIF/zdnz.gif)
